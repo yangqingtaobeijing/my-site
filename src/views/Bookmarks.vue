@@ -17,8 +17,8 @@ onMounted(() => {
     <SiteHeader />
 
     <main class="mx-auto max-w-[800px] px-6 py-10">
-      <h1 class="text-2xl font-bold text-white mb-8 font-[family-name:var(--font-mono)]">
-        <span class="text-[#00d4aa]/50">$</span> ls ~/bookmarks
+      <h1 class="text-2xl font-bold text-white mb-8">
+        我的收藏
       </h1>
 
       <!-- 加载状态 -->

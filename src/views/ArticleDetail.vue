@@ -60,7 +60,7 @@ function goBack() {
           class="text-[#555] hover:text-[#00d4aa] text-sm mb-8 inline-flex items-center gap-1 transition-colors font-[family-name:var(--font-mono)]"
           @click="goBack"
         >
-          <span class="text-[#00d4aa]/50">$</span> cd ..
+          ← 返回
         </button>
 
         <!-- 文章头部 -->
