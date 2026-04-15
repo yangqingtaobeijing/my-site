@@ -7,49 +7,49 @@ const config = computed(() => store.config)
 
 <template>
   <header class="border-b border-[#2a2a3a] bg-[#0a0a0a]/90 backdrop-blur-md sticky top-0 z-50">
-    <div class="mx-auto max-w-[800px] px-6 py-4 flex items-center justify-between">
-      <!-- 站点标题 -->
-      <router-link to="/" class="flex items-center gap-3 group">
+    <div class="mx-auto max-w-[800px] px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+      <!-- 站点标题：手机端只显示图标 -->
+      <router-link to="/" class="flex items-center gap-2 sm:gap-3 group shrink-0">
         <img
           v-if="config.avatarUrl"
           :src="config.avatarUrl"
           :alt="config.title"
-          class="w-8 h-8 rounded-full object-cover border border-[#2a2a3a] group-hover:border-[#00d4aa] transition-all"
+          class="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover border border-[#2a2a3a] group-hover:border-[#00d4aa] transition-all"
         />
         <div
           v-else
-          class="w-8 h-8 rounded-full bg-[#1e1e2e] border border-[#2a2a3a] flex items-center justify-center text-[#00d4aa] text-xs font-bold font-[family-name:var(--font-mono)]"
+          class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#1e1e2e] border border-[#2a2a3a] flex items-center justify-center text-[#00d4aa] text-xs font-bold font-[family-name:var(--font-mono)]"
         >
           {{ config.title.charAt(0) }}
         </div>
-        <span class="text-base font-semibold text-[#e0e0e0] group-hover:text-[#00d4aa] transition-colors font-[family-name:var(--font-mono)]">
+        <span class="hidden sm:inline text-base font-semibold text-[#e0e0e0] group-hover:text-[#00d4aa] transition-colors font-[family-name:var(--font-mono)]">
           {{ config.title }}
         </span>
       </router-link>
 
-      <!-- 导航 -->
-      <nav class="flex items-center gap-6 text-sm font-[family-name:var(--font-mono)]">
+      <!-- 导航：手机端缩小间距和字号，隐藏 >_ 前缀 -->
+      <nav class="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm font-[family-name:var(--font-mono)]">
         <router-link
           to="/"
-          class="text-[#666] hover:text-[#00d4aa] transition-colors link-underline"
+          class="text-[#666] hover:text-[#00d4aa] transition-colors link-underline whitespace-nowrap"
           active-class="!text-[#00d4aa]"
           exact
         >
-          <span class="text-[#00d4aa]/50 mr-1">&gt;_</span>文章
+          <span class="hidden sm:inline text-[#00d4aa]/50 mr-1">&gt;_</span>文章
         </router-link>
         <router-link
           to="/bookmarks"
-          class="text-[#666] hover:text-[#00d4aa] transition-colors link-underline"
+          class="text-[#666] hover:text-[#00d4aa] transition-colors link-underline whitespace-nowrap"
           active-class="!text-[#00d4aa]"
         >
-          <span class="text-[#00d4aa]/50 mr-1">&gt;_</span>收藏
+          <span class="hidden sm:inline text-[#00d4aa]/50 mr-1">&gt;_</span>收藏
         </router-link>
         <router-link
           to="/projects"
-          class="text-[#666] hover:text-[#00d4aa] transition-colors link-underline"
+          class="text-[#666] hover:text-[#00d4aa] transition-colors link-underline whitespace-nowrap"
           active-class="!text-[#00d4aa]"
         >
-          <span class="text-[#00d4aa]/50 mr-1">&gt;_</span>Vibe Coding
+          <span class="hidden sm:inline text-[#00d4aa]/50 mr-1">&gt;_</span>Vibe Coding
         </router-link>
         <router-link
           to="/admin"
