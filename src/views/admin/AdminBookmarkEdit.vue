@@ -63,12 +63,12 @@ function handleSave() {
 <template>
   <div class="max-w-xl">
     <div class="flex items-center justify-between mb-6">
-      <h1 class="text-xl font-bold text-gray-900">
+      <h1 class="text-xl font-bold text-white font-[family-name:var(--font-mono)]">
         {{ isEdit ? '编辑收藏' : '新建收藏' }}
       </h1>
       <router-link
         :to="{ name: 'AdminBookmarks' }"
-        class="text-sm text-gray-400 hover:text-gray-600 transition-colors"
+        class="text-sm text-[#555] hover:text-[#00d4aa] transition-colors font-[family-name:var(--font-mono)]"
       >
         ← 返回列表
       </router-link>
@@ -77,34 +77,34 @@ function handleSave() {
     <form @submit.prevent="handleSave" class="space-y-5">
       <!-- 标题 -->
       <div>
-        <label class="block text-sm text-gray-600 mb-1.5">标题</label>
+        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">标题</label>
         <input
           v-model="title"
           type="text"
           placeholder="收藏名称"
-          class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+          class="admin-input"
         />
       </div>
 
       <!-- 描述 -->
       <div>
-        <label class="block text-sm text-gray-600 mb-1.5">描述</label>
+        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">描述</label>
         <textarea
           v-model="description"
           placeholder="简短描述"
           rows="3"
-          class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm resize-none"
+          class="admin-input resize-none"
         />
       </div>
 
       <!-- URL -->
       <div>
-        <label class="block text-sm text-gray-600 mb-1.5">链接地址</label>
+        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">链接地址</label>
         <input
           v-model="url"
           type="url"
           placeholder="https://example.com"
-          class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+          class="admin-input"
         />
       </div>
 
@@ -112,13 +112,13 @@ function handleSave() {
       <div class="flex gap-3 pt-4">
         <button
           type="submit"
-          class="bg-indigo-600 text-white px-6 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
+          class="btn-primary"
         >
           {{ isEdit ? '保存修改' : '添加收藏' }}
         </button>
         <router-link
           :to="{ name: 'AdminBookmarks' }"
-          class="px-6 py-2.5 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors text-sm"
+          class="btn-secondary"
         >
           取消
         </router-link>

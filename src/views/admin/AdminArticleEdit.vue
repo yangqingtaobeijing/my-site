@@ -86,12 +86,12 @@ function handleSave() {
 <template>
   <div class="max-w-3xl">
     <div class="flex items-center justify-between mb-6">
-      <h1 class="text-xl font-bold text-gray-900">
+      <h1 class="text-xl font-bold text-white font-[family-name:var(--font-mono)]">
         {{ isEdit ? '编辑文章' : '新建文章' }}
       </h1>
       <router-link
         :to="{ name: 'AdminArticles' }"
-        class="text-sm text-gray-400 hover:text-gray-600 transition-colors"
+        class="text-sm text-[#555] hover:text-[#00d4aa] transition-colors font-[family-name:var(--font-mono)]"
       >
         ← 返回列表
       </router-link>
@@ -100,15 +100,15 @@ function handleSave() {
     <form @submit.prevent="handleSave" class="space-y-5">
       <!-- 文章类型 -->
       <div>
-        <label class="block text-sm text-gray-600 mb-2">文章类型</label>
+        <label class="block text-sm text-[#999] mb-2 font-[family-name:var(--font-mono)]">文章类型</label>
         <div class="flex gap-3">
           <button
             type="button"
             :class="[
-              'px-4 py-2 rounded-lg text-sm border transition-colors',
+              'px-4 py-2 rounded-lg text-sm border transition-colors font-[family-name:var(--font-mono)]',
               articleType === 'local'
-                ? 'bg-indigo-50 border-indigo-200 text-indigo-700'
-                : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50',
+                ? 'bg-[#00d4aa]/10 border-[#00d4aa]/30 text-[#00d4aa]'
+                : 'bg-[#1e1e2e] border-[#2a2a3a] text-[#666] hover:border-[#444]',
             ]"
             @click="articleType = 'local'"
           >
@@ -117,10 +117,10 @@ function handleSave() {
           <button
             type="button"
             :class="[
-              'px-4 py-2 rounded-lg text-sm border transition-colors',
+              'px-4 py-2 rounded-lg text-sm border transition-colors font-[family-name:var(--font-mono)]',
               articleType === 'external'
-                ? 'bg-amber-50 border-amber-200 text-amber-700'
-                : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50',
+                ? 'bg-amber-500/10 border-amber-500/30 text-amber-400'
+                : 'bg-[#1e1e2e] border-[#2a2a3a] text-[#666] hover:border-[#444]',
             ]"
             @click="articleType = 'external'"
           >
@@ -131,56 +131,60 @@ function handleSave() {
 
       <!-- 标题 -->
       <div>
-        <label class="block text-sm text-gray-600 mb-1.5">标题</label>
+        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">标题</label>
         <input
           v-model="title"
           type="text"
           placeholder="文章标题"
-          class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+          class="admin-input"
         />
       </div>
 
       <!-- 摘要 -->
       <div>
-        <label class="block text-sm text-gray-600 mb-1.5">摘要</label>
+        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">摘要</label>
         <textarea
           v-model="summary"
           placeholder="简短描述文章内容"
           rows="2"
-          class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm resize-none"
+          class="admin-input resize-none"
         />
       </div>
 
       <!-- 本地文章：Markdown 编辑器 -->
       <div v-if="articleType === 'local'">
         <div class="flex items-center justify-between mb-1.5">
-          <label class="text-sm text-gray-600">内容（Markdown）</label>
+          <label class="text-sm text-[#999] font-[family-name:var(--font-mono)]">内容（Markdown）</label>
           <button
             type="button"
-            class="text-xs text-indigo-600 hover:text-indigo-700"
+            class="text-xs text-[#00d4aa] hover:text-[#00d4aa]/80 font-[family-name:var(--font-mono)]"
             @click="showPreview = !showPreview"
           >
-            {{ showPreview ? '编辑' : '预览' }}
+            {{ showPreview ? '&lt; 编辑' : '预览 &gt;' }}
           </button>
         </div>
-        <div v-if="showPreview" class="markdown-body p-5 bg-white border border-gray-200 rounded-lg min-h-[300px]" v-html="previewHtml" />
+        <div
+          v-if="showPreview"
+          class="markdown-body p-5 bg-[#1e1e2e] border border-[#2a2a3a] rounded-lg min-h-[300px]"
+          v-html="previewHtml"
+        />
         <textarea
           v-else
           v-model="content"
           placeholder="在这里写 Markdown 内容..."
           rows="16"
-          class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm font-mono resize-y"
+          class="admin-input font-[family-name:var(--font-mono)] resize-y"
         />
       </div>
 
       <!-- 外链文章：URL -->
       <div v-if="articleType === 'external'">
-        <label class="block text-sm text-gray-600 mb-1.5">公众号链接</label>
+        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">公众号链接</label>
         <input
           v-model="externalUrl"
           type="url"
           placeholder="https://mp.weixin.qq.com/s/..."
-          class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+          class="admin-input"
         />
       </div>
 
@@ -188,13 +192,13 @@ function handleSave() {
       <div class="flex gap-3 pt-4">
         <button
           type="submit"
-          class="bg-indigo-600 text-white px-6 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
+          class="btn-primary"
         >
           {{ isEdit ? '保存修改' : '发布文章' }}
         </button>
         <router-link
           :to="{ name: 'AdminArticles' }"
-          class="px-6 py-2.5 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors text-sm"
+          class="btn-secondary"
         >
           取消
         </router-link>

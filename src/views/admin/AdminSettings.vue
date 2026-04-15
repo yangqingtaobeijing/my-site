@@ -119,119 +119,121 @@ function handleImport() {
 
 <template>
   <div class="max-w-xl space-y-10">
-    <h1 class="text-xl font-bold text-gray-900">站点设置</h1>
+    <h1 class="text-xl font-bold text-white font-[family-name:var(--font-mono)]">站点设置</h1>
 
     <!-- 基本信息 -->
     <section>
-      <h2 class="text-base font-semibold text-gray-800 mb-4">基本信息</h2>
+      <h2 class="text-base font-semibold text-[#e0e0e0] mb-4 font-[family-name:var(--font-mono)]">基本信息</h2>
       <form @submit.prevent="saveConfig" class="space-y-4">
         <div>
-          <label class="block text-sm text-gray-600 mb-1.5">网站标题</label>
+          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">网站标题</label>
           <input
             v-model="siteTitle"
             type="text"
-            class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+            class="admin-input"
           />
         </div>
         <div>
-          <label class="block text-sm text-gray-600 mb-1.5">副标题</label>
+          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">副标题</label>
           <input
             v-model="subtitle"
             type="text"
-            class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+            class="admin-input"
           />
         </div>
         <div>
-          <label class="block text-sm text-gray-600 mb-1.5">个人简介</label>
+          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">个人简介</label>
           <textarea
             v-model="bio"
             rows="3"
-            class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm resize-none"
+            class="admin-input resize-none"
           />
         </div>
         <div>
-          <label class="block text-sm text-gray-600 mb-1.5">头像 URL</label>
+          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">头像 URL</label>
           <input
             v-model="avatarUrl"
             type="url"
             placeholder="https://example.com/avatar.jpg（可选）"
-            class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+            class="admin-input"
           />
         </div>
         <div class="flex items-center gap-3 pt-2">
           <button
             type="submit"
-            class="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
+            class="btn-primary"
           >
             保存设置
           </button>
-          <span v-if="configSaved" class="text-green-600 text-sm">✓ 已保存</span>
+          <span v-if="configSaved" class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]">✓ 已保存</span>
         </div>
       </form>
     </section>
 
     <!-- 修改密码 -->
-    <section class="border-t border-gray-200 pt-8">
-      <h2 class="text-base font-semibold text-gray-800 mb-4">修改密码</h2>
+    <section class="border-t border-[#2a2a3a] pt-8">
+      <h2 class="text-base font-semibold text-[#e0e0e0] mb-4 font-[family-name:var(--font-mono)]">修改密码</h2>
       <form @submit.prevent="changePassword" class="space-y-4">
         <div>
-          <label class="block text-sm text-gray-600 mb-1.5">旧密码</label>
+          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">旧密码</label>
           <input
             v-model="oldPassword"
             type="password"
-            class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+            class="admin-input"
           />
         </div>
         <div>
-          <label class="block text-sm text-gray-600 mb-1.5">新密码</label>
+          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">新密码</label>
           <input
             v-model="newPassword"
             type="password"
-            class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+            class="admin-input"
           />
         </div>
         <div>
-          <label class="block text-sm text-gray-600 mb-1.5">确认新密码</label>
+          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">确认新密码</label>
           <input
             v-model="confirmNewPassword"
             type="password"
-            class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+            class="admin-input"
           />
         </div>
-        <p v-if="passwordError" class="text-red-500 text-sm">{{ passwordError }}</p>
+        <p v-if="passwordError" class="text-red-400 text-sm font-[family-name:var(--font-mono)]">
+          <span class="text-red-500">✗</span> {{ passwordError }}
+        </p>
         <div class="flex items-center gap-3 pt-2">
           <button
             type="submit"
-            class="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
+            class="btn-primary"
           >
             修改密码
           </button>
-          <span v-if="passwordSaved" class="text-green-600 text-sm">✓ 密码已修改</span>
+          <span v-if="passwordSaved" class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]">✓ 密码已修改</span>
         </div>
       </form>
     </section>
 
     <!-- 数据导入导出 -->
-    <section class="border-t border-gray-200 pt-8">
-      <h2 class="text-base font-semibold text-gray-800 mb-2">数据管理</h2>
-      <p class="text-sm text-gray-500 mb-4">
+    <section class="border-t border-[#2a2a3a] pt-8">
+      <h2 class="text-base font-semibold text-[#e0e0e0] mb-2 font-[family-name:var(--font-mono)]">数据管理</h2>
+      <p class="text-sm text-[#666] mb-4">
         导出数据可以备份到其他地方，换浏览器时通过导入恢复数据。
       </p>
       <div class="flex gap-3">
         <button
-          class="bg-white border border-gray-200 text-gray-700 px-5 py-2 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium"
+          class="btn-secondary"
           @click="handleExport"
         >
           📦 导出数据
         </button>
         <button
-          class="bg-white border border-gray-200 text-gray-700 px-5 py-2 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium"
+          class="btn-secondary"
           @click="handleImport"
         >
           📥 导入数据
         </button>
       </div>
-      <span v-if="importSuccess" class="text-green-600 text-sm mt-2 block">✓ 导入成功</span>
+      <span v-if="importSuccess" class="text-[#00d4aa] text-sm mt-2 block font-[family-name:var(--font-mono)]">✓ 导入成功</span>
     </section>
   </div>
 </template>

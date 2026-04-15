@@ -25,58 +25,58 @@ function doDelete(id: string) {
 <template>
   <div>
     <div class="flex items-center justify-between mb-6">
-      <h1 class="text-xl font-bold text-gray-900">文章管理</h1>
+      <h1 class="text-xl font-bold text-white font-[family-name:var(--font-mono)]">文章管理</h1>
       <router-link
         :to="{ name: 'AdminArticleNew' }"
-        class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
+        class="btn-primary text-sm"
       >
         + 新建文章
       </router-link>
     </div>
 
     <!-- 空状态 -->
-    <div v-if="articles.length === 0" class="text-center py-16 text-gray-400">
-      <p class="text-lg">暂无文章</p>
-      <p class="text-sm mt-2">点击上方按钮创建第一篇文章</p>
+    <div v-if="articles.length === 0" class="text-center py-16 text-[#666]">
+      <p class="text-lg font-[family-name:var(--font-mono)]">&gt;_ 暂无文章</p>
+      <p class="text-sm mt-2 text-[#444]">点击上方按钮创建第一篇文章</p>
     </div>
 
     <!-- 文章列表 -->
-    <div v-else class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+    <div v-else class="bg-[#1e1e2e] rounded-xl border border-[#2a2a3a] overflow-hidden">
       <table class="w-full text-sm">
-        <thead class="bg-gray-50 border-b border-gray-200">
+        <thead class="bg-[#161622] border-b border-[#2a2a3a]">
           <tr>
-            <th class="text-left px-5 py-3 font-medium text-gray-600">标题</th>
-            <th class="text-left px-5 py-3 font-medium text-gray-600 w-20">类型</th>
-            <th class="text-left px-5 py-3 font-medium text-gray-600 w-28">日期</th>
-            <th class="text-right px-5 py-3 font-medium text-gray-600 w-32">操作</th>
+            <th class="text-left px-5 py-3 font-medium text-[#999] font-[family-name:var(--font-mono)]">标题</th>
+            <th class="text-left px-5 py-3 font-medium text-[#999] font-[family-name:var(--font-mono)] w-20">类型</th>
+            <th class="text-left px-5 py-3 font-medium text-[#999] font-[family-name:var(--font-mono)] w-28">日期</th>
+            <th class="text-right px-5 py-3 font-medium text-[#999] font-[family-name:var(--font-mono)] w-32">操作</th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-gray-100">
-          <tr v-for="article in articles" :key="article.id" class="hover:bg-gray-50/50">
-            <td class="px-5 py-3.5 text-gray-900">{{ article.title }}</td>
+        <tbody class="divide-y divide-[#2a2a3a]">
+          <tr v-for="article in articles" :key="article.id" class="hover:bg-[#161622]/50">
+            <td class="px-5 py-3.5 text-[#e0e0e0]">{{ article.title }}</td>
             <td class="px-5 py-3.5">
               <span
                 :class="[
-                  'text-xs px-2 py-0.5 rounded',
+                  'text-xs px-2 py-0.5 rounded font-[family-name:var(--font-mono)]',
                   article.type === 'local'
-                    ? 'bg-green-50 text-green-600'
-                    : 'bg-amber-50 text-amber-600',
+                    ? 'bg-[#00d4aa]/10 text-[#00d4aa]'
+                    : 'bg-amber-500/10 text-amber-400',
                 ]"
               >
                 {{ article.type === 'local' ? '本地' : '外链' }}
               </span>
             </td>
-            <td class="px-5 py-3.5 text-gray-500">{{ formatDateShort(article.createdAt) }}</td>
+            <td class="px-5 py-3.5 text-[#666] font-[family-name:var(--font-mono)]">{{ formatDateShort(article.createdAt) }}</td>
             <td class="px-5 py-3.5 text-right">
               <div v-if="deletingId === article.id" class="flex items-center justify-end gap-2">
                 <button
-                  class="text-red-600 hover:text-red-700 text-xs font-medium"
+                  class="text-red-400 hover:text-red-300 text-xs font-medium font-[family-name:var(--font-mono)]"
                   @click="doDelete(article.id)"
                 >
                   确认删除
                 </button>
                 <button
-                  class="text-gray-400 hover:text-gray-600 text-xs"
+                  class="text-[#666] hover:text-[#999] text-xs font-[family-name:var(--font-mono)]"
                   @click="cancelDelete"
                 >
                   取消
@@ -85,12 +85,12 @@ function doDelete(id: string) {
               <div v-else class="flex items-center justify-end gap-3">
                 <router-link
                   :to="{ name: 'AdminArticleEdit', params: { id: article.id } }"
-                  class="text-indigo-600 hover:text-indigo-700 text-xs font-medium"
+                  class="text-[#00d4aa] hover:text-[#00d4aa]/80 text-xs font-medium font-[family-name:var(--font-mono)]"
                 >
                   编辑
                 </router-link>
                 <button
-                  class="text-gray-400 hover:text-red-500 text-xs"
+                  class="text-[#555] hover:text-red-400 text-xs font-[family-name:var(--font-mono)]"
                   @click="confirmDelete(article.id)"
                 >
                   删除

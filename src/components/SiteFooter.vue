@@ -3,9 +3,13 @@
 </script>
 
 <template>
-  <footer class="border-t border-gray-100 py-8 mt-16">
-    <div class="mx-auto max-w-3xl px-6 text-center text-sm text-gray-400">
-      <p>© {{ new Date().getFullYear() }} · 用 ❤️ 搭建</p>
+  <footer class="border-t border-[#2a2a3a] py-8 mt-16">
+    <div class="mx-auto max-w-[800px] px-6 text-center text-sm text-[#333] font-[family-name:var(--font-mono)]">
+      <p>
+        <span class="text-[#00d4aa]/40">$</span>
+        echo "© {{ new Date().getFullYear() }} · built with <span class="text-[#00d4aa]">❤</span>"
+        <span class="cursor-blink" />
+      </p>
     </div>
   </footer>
 </template>

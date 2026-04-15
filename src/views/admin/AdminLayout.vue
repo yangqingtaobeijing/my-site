@@ -18,14 +18,16 @@ const navItems = [
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-50 flex">
+  <div class="min-h-screen bg-[#0a0a0a] flex">
     <!-- 侧边栏 -->
-    <aside class="w-56 bg-white border-r border-gray-200 flex flex-col shrink-0">
-      <div class="p-5 border-b border-gray-100">
-        <router-link to="/" class="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+    <aside class="w-56 bg-[#161622] border-r border-[#2a2a3a] flex flex-col shrink-0">
+      <div class="p-5 border-b border-[#2a2a3a]">
+        <router-link to="/" class="text-xs text-[#555] hover:text-[#00d4aa] transition-colors font-[family-name:var(--font-mono)]">
           ← 返回前台
         </router-link>
-        <h2 class="text-base font-semibold text-gray-900 mt-2">管理后台</h2>
+        <h2 class="text-base font-semibold text-white mt-2 font-[family-name:var(--font-mono)]">
+          管理后台
+        </h2>
       </div>
 
       <nav class="flex-1 p-3 space-y-1">
@@ -33,17 +35,17 @@ const navItems = [
           v-for="item in navItems"
           :key="item.name"
           :to="{ name: item.name }"
-          class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-gray-600 hover:bg-gray-50 transition-colors"
-          active-class="!bg-indigo-50 !text-indigo-700 font-medium"
+          class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-[#999] hover:bg-[#1e1e2e] hover:text-[#e0e0e0] transition-colors"
+          active-class="!bg-[#00d4aa]/10 !text-[#00d4aa] font-medium"
         >
           <span>{{ item.icon }}</span>
           <span>{{ item.label }}</span>
         </router-link>
       </nav>
 
-      <div class="p-3 border-t border-gray-100">
+      <div class="p-3 border-t border-[#2a2a3a]">
         <button
-          class="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors"
+          class="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-[#555] hover:text-red-400 hover:bg-red-400/10 transition-colors"
           @click="logout"
         >
           <span>🚪</span>

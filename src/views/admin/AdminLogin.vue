@@ -60,48 +60,62 @@ function handleSubmit() {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+  <div class="min-h-screen bg-[#0a0a0a] dot-grid-bg flex items-center justify-center px-4">
     <div class="w-full max-w-sm">
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
-        <h1 class="text-xl font-bold text-gray-900 text-center mb-2">管理后台</h1>
-        <p class="text-sm text-gray-500 text-center mb-8">
-          {{ hasPassword ? '请输入密码登录' : '首次使用，请设置管理密码' }}
+      <div class="bg-[#1e1e2e] rounded-xl border border-[#2a2a3a] p-8">
+        <!-- 终端风格标题 -->
+        <div class="flex items-center gap-2 mb-6">
+          <div class="flex gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-[#ff5f57]" />
+            <span class="w-3 h-3 rounded-full bg-[#febc2e]" />
+            <span class="w-3 h-3 rounded-full bg-[#28c840]" />
+          </div>
+          <span class="text-xs text-[#555] font-[family-name:var(--font-mono)] ml-2">admin@site ~ %</span>
+        </div>
+
+        <h1 class="text-xl font-bold text-white text-center mb-2 font-[family-name:var(--font-mono)]">
+          管理后台
+        </h1>
+        <p class="text-sm text-[#666] text-center mb-8 font-[family-name:var(--font-mono)]">
+          {{ hasPassword ? '// 请输入密码登录' : '// 首次使用，请设置管理密码' }}
         </p>
 
         <form @submit.prevent="handleSubmit" class="space-y-4">
           <div>
-            <label class="block text-sm text-gray-600 mb-1.5">密码</label>
+            <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">密码</label>
             <input
               v-model="password"
               type="password"
               :placeholder="hasPassword ? '输入管理密码' : '设置管理密码'"
-              class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+              class="admin-input"
             />
           </div>
 
           <div v-if="!hasPassword">
-            <label class="block text-sm text-gray-600 mb-1.5">确认密码</label>
+            <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">确认密码</label>
             <input
               v-model="confirmPassword"
               type="password"
               placeholder="再输一次"
-              class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+              class="admin-input"
             />
           </div>
 
-          <p v-if="error" class="text-red-500 text-sm">{{ error }}</p>
+          <p v-if="error" class="text-red-400 text-sm font-[family-name:var(--font-mono)]">
+            <span class="text-red-500">✗</span> {{ error }}
+          </p>
 
           <button
             type="submit"
-            class="w-full bg-indigo-600 text-white py-2.5 rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
+            class="w-full btn-primary"
           >
             {{ hasPassword ? '登录' : '设置密码并进入' }}
           </button>
         </form>
 
         <div class="mt-6 text-center">
-          <router-link to="/" class="text-xs text-gray-400 hover:text-gray-600 transition-colors">
-            ← 返回前台
+          <router-link to="/" class="text-xs text-[#555] hover:text-[#00d4aa] transition-colors font-[family-name:var(--font-mono)]">
+            ← cd /home
           </router-link>
         </div>
       </div>

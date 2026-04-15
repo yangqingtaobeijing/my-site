@@ -6,47 +6,47 @@ const config = computed(() => store.config)
 </script>
 
 <template>
-  <header class="border-b border-gray-100 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-    <div class="mx-auto max-w-3xl px-6 py-4 flex items-center justify-between">
+  <header class="border-b border-[#2a2a3a] bg-[#0a0a0a]/90 backdrop-blur-md sticky top-0 z-50">
+    <div class="mx-auto max-w-[800px] px-6 py-4 flex items-center justify-between">
       <!-- 站点标题 -->
       <router-link to="/" class="flex items-center gap-3 group">
         <img
           v-if="config.avatarUrl"
           :src="config.avatarUrl"
           :alt="config.title"
-          class="w-9 h-9 rounded-full object-cover ring-2 ring-gray-100 group-hover:ring-gray-300 transition-all"
+          class="w-8 h-8 rounded-full object-cover border border-[#2a2a3a] group-hover:border-[#00d4aa] transition-all"
         />
         <div
           v-else
-          class="w-9 h-9 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-sm font-bold"
+          class="w-8 h-8 rounded-full bg-[#1e1e2e] border border-[#2a2a3a] flex items-center justify-center text-[#00d4aa] text-xs font-bold font-[family-name:var(--font-mono)]"
         >
           {{ config.title.charAt(0) }}
         </div>
-        <span class="text-lg font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
+        <span class="text-base font-semibold text-[#e0e0e0] group-hover:text-[#00d4aa] transition-colors font-[family-name:var(--font-mono)]">
           {{ config.title }}
         </span>
       </router-link>
 
       <!-- 导航 -->
-      <nav class="flex items-center gap-6 text-sm">
+      <nav class="flex items-center gap-6 text-sm font-[family-name:var(--font-mono)]">
         <router-link
           to="/"
-          class="text-gray-600 hover:text-gray-900 transition-colors"
-          active-class="!text-gray-900 font-medium"
+          class="text-[#666] hover:text-[#00d4aa] transition-colors link-underline"
+          active-class="!text-[#00d4aa]"
           exact
         >
-          文章
+          <span class="text-[#00d4aa]/50 mr-1">&gt;_</span>文章
         </router-link>
         <router-link
           to="/bookmarks"
-          class="text-gray-600 hover:text-gray-900 transition-colors"
-          active-class="!text-gray-900 font-medium"
+          class="text-[#666] hover:text-[#00d4aa] transition-colors link-underline"
+          active-class="!text-[#00d4aa]"
         >
-          收藏
+          <span class="text-[#00d4aa]/50 mr-1">&gt;_</span>收藏
         </router-link>
         <router-link
           to="/admin"
-          class="text-gray-400 hover:text-gray-600 transition-colors text-xs"
+          class="text-[#333] hover:text-[#666] transition-colors text-xs"
           title="管理后台"
         >
           ⚙
