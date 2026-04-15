@@ -13,7 +13,7 @@
   --color-accent-dim: rgba(0, 212, 170, 0.15);
   --color-border: #2a2a3a;
   --color-border-hover: #00d4aa;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-mono: 'Menlo', 'Monaco', 'Cascadia Code', 'Consolas', 'Courier New', monospace;
   --font-sans: system-ui, -apple-system, sans-serif;
 }
 
