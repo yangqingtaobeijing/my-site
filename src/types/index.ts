@@ -34,3 +34,11 @@ export interface ExportData {
   config: SiteConfig
   exportedAt: string
 }
+
+/** GitHub API 配置 */
+export interface GitHubConfig {
+  owner: string      // 如 'yangqingtaobeijing'
+  repo: string       // 如 'my-site'
+  branch: string     // 'gh-pages'
+  token: string      // Personal Access Token
+}

@@ -3,12 +3,16 @@ import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { getPasswordHash, setPasswordHash } from '../../store'
 import { sha256 } from '../../utils/crypto'
+import { getGitHubFields, saveGitHubConfig } from '../../utils/github'
 
 const router = useRouter()
 
 const password = ref('')
 const confirmPassword = ref('')
 const error = ref('')
+
+/** GitHub Token（登录时可选填写） */
+const ghToken = ref(getGitHubFields().token)
 
 /** 是否已设置密码 */
 const hasPassword = computed(() => getPasswordHash() !== null)
@@ -30,6 +34,7 @@ async function handleSetPassword() {
   }
   const hash = await sha256(password.value)
   setPasswordHash(hash)
+  saveTokenIfProvided()
   sessionStorage.setItem('admin_logged_in', 'true')
   router.push('/admin/articles')
 }
@@ -43,10 +48,24 @@ async function handleLogin() {
   }
   const hash = await sha256(password.value)
   if (hash === getPasswordHash()) {
+    saveTokenIfProvided()
     sessionStorage.setItem('admin_logged_in', 'true')
     router.push('/admin/articles')
   } else {
     error.value = '密码错误'
+  }
+}
+
+/** 如果填写了 GitHub Token，保存到 localStorage */
+function saveTokenIfProvided() {
+  if (ghToken.value.trim()) {
+    const fields = getGitHubFields()
+    saveGitHubConfig({
+      owner: fields.owner,
+      repo: fields.repo,
+      branch: fields.branch,
+      token: ghToken.value.trim(),
+    })
   }
 }
 
@@ -99,6 +118,29 @@ function handleSubmit() {
               placeholder="再输一次"
               class="admin-input"
             />
+          </div>
+
+          <!-- GitHub Token（可选） -->
+          <div class="border-t border-[#2a2a3a] pt-4 mt-4">
+            <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">
+              GitHub Token <span class="text-[#555]">（可选）</span>
+            </label>
+            <input
+              v-model="ghToken"
+              type="password"
+              placeholder="ghp_xxxx...（用于同步数据到 GitHub）"
+              class="admin-input"
+            />
+            <p class="text-xs text-[#444] mt-1.5">
+              在
+              <a
+                href="https://github.com/settings/tokens"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-[#00d4aa]/70 hover:text-[#00d4aa]"
+              >Settings → Tokens</a>
+              创建，勾选 repo 权限。也可以登录后在设置页配置。
+            </p>
           </div>
 
           <p v-if="error" class="text-red-400 text-sm font-[family-name:var(--font-mono)]">

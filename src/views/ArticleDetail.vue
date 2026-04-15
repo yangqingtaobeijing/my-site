@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
-import { getArticleById } from '../store'
+import { getArticleById, loadFromGitHub, dataLoading } from '../store'
 import { renderMarkdown } from '../utils/markdown'
 import { formatDate } from '../utils/date'
 
 const route = useRoute()
 const router = useRouter()
+
+onMounted(() => {
+  loadFromGitHub()
+})
 
 const article = computed(() => {
   const id = route.params.id as string
@@ -33,8 +37,13 @@ function goBack() {
     <SiteHeader />
 
     <main class="mx-auto max-w-[800px] px-6 py-10">
+      <!-- 加载中 -->
+      <div v-if="dataLoading" class="text-center py-20">
+        <p class="text-[#555] text-sm font-[family-name:var(--font-mono)] animate-pulse">&gt;_ 加载中...</p>
+      </div>
+
       <!-- 文章不存在 -->
-      <div v-if="!article" class="text-center py-20">
+      <div v-else-if="!article" class="text-center py-20">
         <p class="text-[#666] text-lg font-[family-name:var(--font-mono)]">&gt;_ 404 文章不存在</p>
         <button
           class="mt-4 text-[#00d4aa] hover:text-[#00d4aa]/80 text-sm font-[family-name:var(--font-mono)]"

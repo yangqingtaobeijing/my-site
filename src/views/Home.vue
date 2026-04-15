@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
-import { store, getArticles } from '../store'
+import { store, getArticles, loadFromGitHub, dataLoading } from '../store'
 import { formatDate } from '../utils/date'
 
 const config = computed(() => store.config)
 const articles = computed(() => getArticles())
+
+onMounted(() => {
+  loadFromGitHub()
+})
 </script>
 
 <template>
@@ -45,8 +49,13 @@ const articles = computed(() => getArticles())
         </div>
       </section>
 
+      <!-- 加载状态 -->
+      <section v-if="dataLoading" class="py-20 text-center">
+        <p class="text-[#555] text-sm font-[family-name:var(--font-mono)] animate-pulse">&gt;_ 加载中...</p>
+      </section>
+
       <!-- 文章列表 -->
-      <section class="py-10">
+      <section v-else class="py-10">
         <div v-if="articles.length === 0" class="text-center py-20 text-[#666]">
           <p class="text-lg font-[family-name:var(--font-mono)]">&gt;_ 还没有文章</p>
           <p class="text-sm mt-2 text-[#444]">去后台添加第一篇文章吧</p>

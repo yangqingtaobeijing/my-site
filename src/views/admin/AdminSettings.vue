@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { getSiteConfig, updateSiteConfig, getPasswordHash, setPasswordHash, exportData, importData } from '../../store'
+import { getSiteConfig, updateSiteConfig, getPasswordHash, setPasswordHash, exportData, importData, syncAllToGitHub } from '../../store'
 import { sha256 } from '../../utils/crypto'
+import { getGitHubFields, saveGitHubConfig, testConnection } from '../../utils/github'
 import type { ExportData } from '../../types'
 
 // ==================== 站点设置 ====================
@@ -17,10 +18,17 @@ onMounted(() => {
   subtitle.value = config.subtitle
   bio.value = config.bio
   avatarUrl.value = config.avatarUrl
+
+  // 加载 GitHub 配置
+  const ghFields = getGitHubFields()
+  ghOwner.value = ghFields.owner
+  ghRepo.value = ghFields.repo
+  ghBranch.value = ghFields.branch
+  ghToken.value = ghFields.token
 })
 
-function saveConfig() {
-  updateSiteConfig({
+async function saveConfig() {
+  await updateSiteConfig({
     title: siteTitle.value.trim(),
     subtitle: subtitle.value.trim(),
     bio: bio.value.trim(),
@@ -65,6 +73,63 @@ async function changePassword() {
   confirmNewPassword.value = ''
   passwordSaved.value = true
   setTimeout(() => { passwordSaved.value = false }, 2000)
+}
+
+// ==================== GitHub 同步设置 ====================
+const ghOwner = ref('')
+const ghRepo = ref('')
+const ghBranch = ref('')
+const ghToken = ref('')
+const ghSaved = ref(false)
+const ghTesting = ref(false)
+const ghTestResult = ref<'success' | 'fail' | ''>('')
+const ghSyncing = ref(false)
+const ghSyncResult = ref<'success' | 'fail' | ''>('')
+
+function saveGitHub() {
+  saveGitHubConfig({
+    owner: ghOwner.value.trim(),
+    repo: ghRepo.value.trim(),
+    branch: ghBranch.value.trim(),
+    token: ghToken.value.trim(),
+  })
+  ghSaved.value = true
+  setTimeout(() => { ghSaved.value = false }, 2000)
+}
+
+async function handleTestConnection() {
+  ghTesting.value = true
+  ghTestResult.value = ''
+  try {
+    const ok = await testConnection({
+      owner: ghOwner.value.trim(),
+      repo: ghRepo.value.trim(),
+      branch: ghBranch.value.trim(),
+      token: ghToken.value.trim(),
+    })
+    ghTestResult.value = ok ? 'success' : 'fail'
+  } catch {
+    ghTestResult.value = 'fail'
+  } finally {
+    ghTesting.value = false
+    setTimeout(() => { ghTestResult.value = '' }, 3000)
+  }
+}
+
+async function handleSyncAll() {
+  ghSyncing.value = true
+  ghSyncResult.value = ''
+  // 先保存配置
+  saveGitHub()
+  try {
+    const ok = await syncAllToGitHub()
+    ghSyncResult.value = ok ? 'success' : 'fail'
+  } catch {
+    ghSyncResult.value = 'fail'
+  } finally {
+    ghSyncing.value = false
+    setTimeout(() => { ghSyncResult.value = '' }, 3000)
+  }
 }
 
 // ==================== 数据导入导出 ====================
@@ -168,6 +233,108 @@ function handleImport() {
           <span v-if="configSaved" class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]">✓ 已保存</span>
         </div>
       </form>
+    </section>
+
+    <!-- GitHub 同步设置 -->
+    <section class="border-t border-[#2a2a3a] pt-8">
+      <h2 class="text-base font-semibold text-[#e0e0e0] mb-2 font-[family-name:var(--font-mono)]">GitHub 同步</h2>
+      <p class="text-sm text-[#666] mb-4">
+        配置后，文章和收藏数据会自动同步到 GitHub 仓库，通过 GitHub Pages 发布。
+      </p>
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">Owner</label>
+          <input
+            v-model="ghOwner"
+            type="text"
+            placeholder="yangqingtaobeijing"
+            class="admin-input"
+          />
+        </div>
+        <div>
+          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">Repo</label>
+          <input
+            v-model="ghRepo"
+            type="text"
+            placeholder="my-site"
+            class="admin-input"
+          />
+        </div>
+        <div>
+          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">Branch</label>
+          <input
+            v-model="ghBranch"
+            type="text"
+            placeholder="gh-pages"
+            class="admin-input"
+          />
+        </div>
+        <div>
+          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">
+            Personal Access Token
+          </label>
+          <input
+            v-model="ghToken"
+            type="password"
+            placeholder="ghp_xxxx..."
+            class="admin-input"
+          />
+          <p class="text-xs text-[#444] mt-1.5">
+            在
+            <a
+              href="https://github.com/settings/tokens"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-[#00d4aa]/70 hover:text-[#00d4aa]"
+            >GitHub Settings → Tokens</a>
+            创建，需要 <code class="text-[#00d4aa]/70">repo</code> 权限
+          </p>
+        </div>
+        <div class="flex items-center gap-3 pt-2 flex-wrap">
+          <button
+            type="button"
+            class="btn-primary"
+            @click="saveGitHub"
+          >
+            保存配置
+          </button>
+          <button
+            type="button"
+            class="btn-secondary"
+            :disabled="ghTesting"
+            @click="handleTestConnection"
+          >
+            {{ ghTesting ? '测试中...' : '🔌 测试连接' }}
+          </button>
+          <button
+            type="button"
+            class="btn-secondary"
+            :disabled="ghSyncing"
+            @click="handleSyncAll"
+          >
+            {{ ghSyncing ? '同步中...' : '🔄 全量同步到 GitHub' }}
+          </button>
+        </div>
+        <div class="flex items-center gap-3">
+          <span v-if="ghSaved" class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]">✓ 配置已保存</span>
+          <span
+            v-if="ghTestResult === 'success'"
+            class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]"
+          >✓ 连接成功</span>
+          <span
+            v-if="ghTestResult === 'fail'"
+            class="text-red-400 text-sm font-[family-name:var(--font-mono)]"
+          >✗ 连接失败，请检查配置</span>
+          <span
+            v-if="ghSyncResult === 'success'"
+            class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]"
+          >✓ 全量同步完成</span>
+          <span
+            v-if="ghSyncResult === 'fail'"
+            class="text-red-400 text-sm font-[family-name:var(--font-mono)]"
+          >✗ 同步失败，请检查配置和网络</span>
+        </div>
+      </div>
     </section>
 
     <!-- 修改密码 -->

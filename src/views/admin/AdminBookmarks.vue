@@ -8,6 +8,10 @@ const bookmarks = computed(() => getBookmarks())
 /** 删除确认 */
 const deletingId = ref<string | null>(null)
 
+/** 同步状态提示 */
+const syncMsg = ref('')
+const syncOk = ref(true)
+
 function confirmDelete(id: string) {
   deletingId.value = id
 }
@@ -16,9 +20,12 @@ function cancelDelete() {
   deletingId.value = null
 }
 
-function doDelete(id: string) {
-  deleteBookmark(id)
+async function doDelete(id: string) {
   deletingId.value = null
+  const ok = await deleteBookmark(id)
+  syncOk.value = ok
+  syncMsg.value = ok ? '✓ 已同步到 GitHub' : '⚠ GitHub 同步失败，已删除本地'
+  setTimeout(() => { syncMsg.value = '' }, 3000)
 }
 </script>
 
@@ -33,6 +40,17 @@ function doDelete(id: string) {
         + 新建收藏
       </router-link>
     </div>
+
+    <!-- 同步状态提示 -->
+    <p
+      v-if="syncMsg"
+      :class="[
+        'text-sm mb-4 font-[family-name:var(--font-mono)]',
+        syncOk ? 'text-[#00d4aa]' : 'text-amber-400',
+      ]"
+    >
+      {{ syncMsg }}
+    </p>
 
     <!-- 空状态 -->
     <div v-if="bookmarks.length === 0" class="text-center py-16 text-[#666]">

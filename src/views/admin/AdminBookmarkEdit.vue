@@ -16,6 +16,10 @@ const title = ref('')
 const description = ref('')
 const url = ref('')
 
+/** 保存状态 */
+const saving = ref(false)
+const syncStatus = ref<'success' | 'fail' | ''>('')
+
 /** 加载已有数据 */
 onMounted(() => {
   if (isEdit.value) {
@@ -29,7 +33,7 @@ onMounted(() => {
 })
 
 /** 保存 */
-function handleSave() {
+async function handleSave() {
   if (!title.value.trim()) {
     alert('请输入标题')
     return
@@ -38,6 +42,9 @@ function handleSave() {
     alert('请输入链接地址')
     return
   }
+
+  saving.value = true
+  syncStatus.value = ''
 
   const now = new Date().toISOString()
   const bookmark: Bookmark = {
@@ -50,13 +57,20 @@ function handleSave() {
       : now,
   }
 
+  let ghOk: boolean
   if (isEdit.value) {
-    updateBookmark(bookmark)
+    ghOk = await updateBookmark(bookmark)
   } else {
-    addBookmark(bookmark)
+    ghOk = await addBookmark(bookmark)
   }
 
-  router.push({ name: 'AdminBookmarks' })
+  saving.value = false
+  syncStatus.value = ghOk ? 'success' : 'fail'
+
+  // 短暂显示同步状态后跳转
+  setTimeout(() => {
+    router.push({ name: 'AdminBookmarks' })
+  }, ghOk ? 800 : 2000)
 }
 </script>
 
@@ -108,13 +122,14 @@ function handleSave() {
         />
       </div>
 
-      <!-- 操作按钮 -->
-      <div class="flex gap-3 pt-4">
+      <!-- 操作按钮 + 同步状态 -->
+      <div class="flex items-center gap-3 pt-4">
         <button
           type="submit"
           class="btn-primary"
+          :disabled="saving"
         >
-          {{ isEdit ? '保存修改' : '添加收藏' }}
+          {{ saving ? '保存中...' : isEdit ? '保存修改' : '添加收藏' }}
         </button>
         <router-link
           :to="{ name: 'AdminBookmarks' }"
@@ -122,6 +137,14 @@ function handleSave() {
         >
           取消
         </router-link>
+        <span
+          v-if="syncStatus === 'success'"
+          class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]"
+        >✓ 已同步到 GitHub</span>
+        <span
+          v-if="syncStatus === 'fail'"
+          class="text-amber-400 text-sm font-[family-name:var(--font-mono)]"
+        >⚠ GitHub 同步失败，已保存到本地</span>
       </div>
     </form>
   </div>
