@@ -1,11 +1,12 @@
 import { reactive, ref } from 'vue'
-import type { Article, Bookmark, SiteConfig, ExportData } from '../types'
+import type { Article, Bookmark, Project, SiteConfig, ExportData } from '../types'
 import { fetchPublicData, getGitHubConfig, writeFile } from '../utils/github'
 
 /** localStorage 键名 */
 const KEYS = {
   articles: 'site_articles',
   bookmarks: 'site_bookmarks',
+  projects: 'site_projects',
   config: 'site_config',
   password: 'site_admin_password',
 } as const
@@ -38,6 +39,7 @@ function saveJSON(key: string, data: unknown): void {
 export const store = reactive({
   articles: loadJSON<Article[]>(KEYS.articles, []),
   bookmarks: loadJSON<Bookmark[]>(KEYS.bookmarks, []),
+  projects: loadJSON<Project[]>(KEYS.projects, []),
   config: loadJSON<SiteConfig>(KEYS.config, { ...DEFAULT_CONFIG }),
 })
 
@@ -58,20 +60,23 @@ export async function loadFromGitHub(): Promise<void> {
   if (remoteLoaded) return
   dataLoading.value = true
   try {
-    const [articles, bookmarks, config] = await Promise.all([
+    const [articles, bookmarks, projects, config] = await Promise.all([
       fetchPublicData<Article[]>('articles.json'),
       fetchPublicData<Bookmark[]>('bookmarks.json'),
+      fetchPublicData<Project[]>('projects.json'),
       fetchPublicData<SiteConfig>('config.json'),
     ])
 
     store.articles = articles
     store.bookmarks = bookmarks
+    store.projects = projects
     // config 可能是不完整的旧数据，合并默认值
     Object.assign(store.config, DEFAULT_CONFIG, config)
 
     // 同步到 localStorage 作为缓存
     saveJSON(KEYS.articles, store.articles)
     saveJSON(KEYS.bookmarks, store.bookmarks)
+    saveJSON(KEYS.projects, store.projects)
     saveJSON(KEYS.config, store.config)
 
     remoteLoaded = true
@@ -113,6 +118,7 @@ export async function syncAllToGitHub(): Promise<boolean> {
   const results = await Promise.all([
     syncFileToGitHub('data/articles.json', store.articles, '同步文章数据'),
     syncFileToGitHub('data/bookmarks.json', store.bookmarks, '同步收藏数据'),
+    syncFileToGitHub('data/projects.json', store.projects, '同步项目数据'),
     syncFileToGitHub('data/config.json', store.config, '同步站点配置'),
   ])
   return results.every(Boolean)
@@ -206,6 +212,50 @@ export async function deleteBookmark(id: string): Promise<boolean> {
   )
 }
 
+// ==================== 项目操作 ====================
+
+/** 获取所有项目（按创建日期倒序） */
+export function getProjects(): Project[] {
+  return [...store.projects].sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+  )
+}
+
+/** 根据 ID 获取项目 */
+export function getProjectById(id: string): Project | undefined {
+  return store.projects.find((p) => p.id === id)
+}
+
+/** 添加项目，返回 GitHub 同步结果 */
+export async function addProject(project: Project): Promise<boolean> {
+  store.projects.push(project)
+  saveJSON(KEYS.projects, store.projects)
+  return syncFileToGitHub('data/projects.json', store.projects, `新建项目: ${project.title}`)
+}
+
+/** 更新项目，返回 GitHub 同步结果 */
+export async function updateProject(project: Project): Promise<boolean> {
+  const index = store.projects.findIndex((p) => p.id === project.id)
+  if (index !== -1) {
+    store.projects[index] = project
+    saveJSON(KEYS.projects, store.projects)
+    return syncFileToGitHub('data/projects.json', store.projects, `更新项目: ${project.title}`)
+  }
+  return false
+}
+
+/** 删除项目，返回 GitHub 同步结果 */
+export async function deleteProject(id: string): Promise<boolean> {
+  const project = store.projects.find((p) => p.id === id)
+  store.projects = store.projects.filter((p) => p.id !== id)
+  saveJSON(KEYS.projects, store.projects)
+  return syncFileToGitHub(
+    'data/projects.json',
+    store.projects,
+    `删除项目: ${project?.title || id}`,
+  )
+}
+
 // ==================== 站点配置 ====================
 
 /** 获取站点配置 */
@@ -239,6 +289,7 @@ export function exportData(): ExportData {
   return {
     articles: store.articles,
     bookmarks: store.bookmarks,
+    projects: store.projects,
     config: store.config,
     exportedAt: new Date().toISOString(),
   }
@@ -248,10 +299,12 @@ export function exportData(): ExportData {
 export function importData(data: ExportData): void {
   store.articles = data.articles || []
   store.bookmarks = data.bookmarks || []
+  store.projects = data.projects || []
   if (data.config) {
     Object.assign(store.config, data.config)
   }
   saveJSON(KEYS.articles, store.articles)
   saveJSON(KEYS.bookmarks, store.bookmarks)
+  saveJSON(KEYS.projects, store.projects)
   saveJSON(KEYS.config, store.config)
 }

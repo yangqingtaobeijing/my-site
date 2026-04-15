@@ -45,6 +45,13 @@ const config = computed(() => store.config)
           <span class="text-[#00d4aa]/50 mr-1">&gt;_</span>收藏
         </router-link>
         <router-link
+          to="/projects"
+          class="text-[#666] hover:text-[#00d4aa] transition-colors link-underline"
+          active-class="!text-[#00d4aa]"
+        >
+          <span class="text-[#00d4aa]/50 mr-1">&gt;_</span>Vibe Coding
+        </router-link>
+        <router-link
           to="/admin"
           class="text-[#333] hover:text-[#666] transition-colors text-xs"
           title="管理后台"

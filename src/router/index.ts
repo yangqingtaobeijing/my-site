@@ -5,6 +5,7 @@ import type { RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
 import ArticleDetail from '../views/ArticleDetail.vue'
 import Bookmarks from '../views/Bookmarks.vue'
+import Projects from '../views/Projects.vue'
 
 // 后台页面
 import AdminLogin from '../views/admin/AdminLogin.vue'
@@ -13,6 +14,8 @@ import AdminArticles from '../views/admin/AdminArticles.vue'
 import AdminArticleEdit from '../views/admin/AdminArticleEdit.vue'
 import AdminBookmarks from '../views/admin/AdminBookmarks.vue'
 import AdminBookmarkEdit from '../views/admin/AdminBookmarkEdit.vue'
+import AdminProjects from '../views/admin/AdminProjects.vue'
+import AdminProjectEdit from '../views/admin/AdminProjectEdit.vue'
 import AdminSettings from '../views/admin/AdminSettings.vue'
 
 const routes: RouteRecordRaw[] = [
@@ -20,6 +23,7 @@ const routes: RouteRecordRaw[] = [
   { path: '/', name: 'Home', component: Home },
   { path: '/article/:id', name: 'ArticleDetail', component: ArticleDetail },
   { path: '/bookmarks', name: 'Bookmarks', component: Bookmarks },
+  { path: '/projects', name: 'Projects', component: Projects },
 
   // 后台入口
   { path: '/admin', name: 'AdminLogin', component: AdminLogin },
@@ -35,6 +39,9 @@ const routes: RouteRecordRaw[] = [
       { path: 'bookmarks', name: 'AdminBookmarks', component: AdminBookmarks },
       { path: 'bookmarks/new', name: 'AdminBookmarkNew', component: AdminBookmarkEdit },
       { path: 'bookmarks/edit/:id', name: 'AdminBookmarkEdit', component: AdminBookmarkEdit },
+      { path: 'projects', name: 'AdminProjects', component: AdminProjects },
+      { path: 'projects/new', name: 'AdminProjectNew', component: AdminProjectEdit },
+      { path: 'projects/edit/:id', name: 'AdminProjectEdit', component: AdminProjectEdit },
       { path: 'settings', name: 'AdminSettings', component: AdminSettings },
     ],
   },
@@ -57,6 +64,9 @@ router.beforeEach((to) => {
     'AdminBookmarks',
     'AdminBookmarkNew',
     'AdminBookmarkEdit',
+    'AdminProjects',
+    'AdminProjectNew',
+    'AdminProjectEdit',
     'AdminSettings',
   ]
   if (adminRoutes.includes(to.name as string)) {
