@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": "ef729c4a-030b-40bf-855e-051b3b21fa50",
+    "title": "斗地主",
+    "description": "经典斗地主单机游戏，三级 AI 难度，完整牌型判断和策略系统",
+    "url": "https://yangqingtaobeijing.github.io/doudizhu/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/doudizhu",
+    "tags": ["Vue", "TypeScript", "游戏"],
+    "createdAt": "2026-04-15T05:49:43.290Z"
+  },
+  {
+    "id": "b3a7d1e2-9f4c-4e8a-a6d5-7c2f8e0b1d34",
+    "title": "恋爱时光",
+    "description": "情侣专属 Web 应用：恋爱时间轴、星空许愿、纪念日倒计时、心愿清单、今天吃什么转盘",
+    "url": "https://yangqingtaobeijing.github.io/love-time/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/love-time",
+    "tags": ["Vue", "TypeScript", "Canvas", "浪漫"],
+    "createdAt": "2026-04-16T01:19:00.000Z"
+  }
+]
