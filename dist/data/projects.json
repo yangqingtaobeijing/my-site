@@ -16,5 +16,14 @@
     "sourceUrl": "https://github.com/yangqingtaobeijing/love-time",
     "tags": ["Vue", "TypeScript", "Canvas", "浪漫"],
     "createdAt": "2026-04-16T01:19:00.000Z"
+  },
+  {
+    "id": "c4d8e2f1-a5b6-4c7d-9e0f-3a1b2c4d5e67",
+    "title": "元原则库",
+    "description": "个人元原则管理工具，按领域分类（家庭、健康、工作、生活），支持优先级、复盘周期和调用信号提醒",
+    "url": "https://yangqingtaobeijing.github.io/metaprinciples-web/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/metaprinciples-web",
+    "tags": ["Vue", "TypeScript", "效率工具"],
+    "createdAt": "2026-04-16T01:24:00.000Z"
   }
 ]
