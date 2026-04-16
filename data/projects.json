@@ -43,5 +43,14 @@
     "sourceUrl": "https://github.com/yangqingtaobeijing/air-quality-dashboard",
     "tags": ["数据看板"],
     "createdAt": "2026-04-16T05:57:00.000Z"
+  },
+  {
+    "id": "f7a1b5c4-d9e0-4f2a-c134-6b4d7e8f9a01",
+    "title": "美股行情看板",
+    "description": "实时追踪 DXY、US10Y、WTI、VIX、BTC、纳指、标普 7 大指标，深色金融终端风格",
+    "url": "https://yangqingtaobeijing.github.io/market-dashboard/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/market-dashboard",
+    "tags": ["Vue", "TypeScript", "金融数据"],
+    "createdAt": "2026-04-16T06:03:00.000Z"
   }
 ]
