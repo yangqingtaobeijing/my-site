@@ -25,5 +25,14 @@
     "sourceUrl": "https://github.com/yangqingtaobeijing/metaprinciples-web",
     "tags": ["Vue", "TypeScript", "效率工具"],
     "createdAt": "2026-04-16T01:24:00.000Z"
+  },
+  {
+    "id": "d5e9f3a2-b6c7-4d8e-af01-4b2c3d6e7f89",
+    "title": "别生气啦",
+    "description": "情绪急救箱：呼吸引导、解压互动、生气代价可视化、反思清单、感恩日记、成就墙",
+    "url": "https://yangqingtaobeijing.github.io/dont-be-angry/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/dont-be-angry",
+    "tags": ["Vue", "TypeScript", "治愈系"],
+    "createdAt": "2026-04-16T02:02:00.000Z"
   }
 ]
