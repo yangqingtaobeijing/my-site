@@ -101,12 +101,12 @@ async function handleSave() {
 <template>
   <div class="max-w-xl">
     <div class="flex items-center justify-between mb-6">
-      <h1 class="text-xl font-bold text-white font-[family-name:var(--font-mono)]">
+      <h1 class="text-xl font-bold text-[var(--color-text-bright)] font-[family-name:var(--font-mono)]">
         {{ isEdit ? '编辑项目' : '新建项目' }}
       </h1>
       <router-link
         :to="{ name: 'AdminProjects' }"
-        class="text-sm text-[#555] hover:text-[#00d4aa] transition-colors font-[family-name:var(--font-mono)]"
+        class="text-sm text-[var(--color-text-subtle)] hover:text-[var(--color-accent)] transition-colors font-[family-name:var(--font-mono)]"
       >
         ← 返回列表
       </router-link>
@@ -115,7 +115,7 @@ async function handleSave() {
     <form @submit.prevent="handleSave" class="space-y-5">
       <!-- 项目名称 -->
       <div>
-        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">项目名称</label>
+        <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">项目名称</label>
         <input
           v-model="title"
           type="text"
@@ -126,7 +126,7 @@ async function handleSave() {
 
       <!-- 描述 -->
       <div>
-        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">项目描述</label>
+        <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">项目描述</label>
         <textarea
           v-model="description"
           placeholder="简短描述这个项目"
@@ -137,7 +137,7 @@ async function handleSave() {
 
       <!-- 项目链接 -->
       <div>
-        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">项目链接</label>
+        <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">项目链接</label>
         <input
           v-model="url"
           type="url"
@@ -148,7 +148,7 @@ async function handleSave() {
 
       <!-- 源码链接 -->
       <div>
-        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">源码链接（可选）</label>
+        <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">源码链接（可选）</label>
         <input
           v-model="sourceUrl"
           type="url"
@@ -159,7 +159,7 @@ async function handleSave() {
 
       <!-- 封面图 URL -->
       <div>
-        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">封面图 URL（可选）</label>
+        <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">封面图 URL（可选）</label>
         <input
           v-model="coverUrl"
           type="url"
@@ -170,7 +170,7 @@ async function handleSave() {
 
       <!-- 标签 -->
       <div>
-        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">标签</label>
+        <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">标签</label>
         <div class="flex gap-2">
           <input
             v-model="tagInput"
@@ -191,7 +191,7 @@ async function handleSave() {
           <span
             v-for="(tag, index) in tags"
             :key="tag"
-            class="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded-md bg-[#00d4aa]/10 text-[#00d4aa] font-[family-name:var(--font-mono)]"
+            class="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded-md bg-[var(--color-accent-dim)] text-[var(--color-accent)] font-[family-name:var(--font-mono)]"
           >
             {{ tag }}
             <button
@@ -222,7 +222,7 @@ async function handleSave() {
         </router-link>
         <span
           v-if="syncStatus === 'success'"
-          class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]"
+          class="text-[var(--color-accent)] text-sm font-[family-name:var(--font-mono)]"
         >✓ 已同步到 GitHub</span>
         <span
           v-if="syncStatus === 'fail'"

@@ -77,12 +77,12 @@ async function handleSave() {
 <template>
   <div class="max-w-xl">
     <div class="flex items-center justify-between mb-6">
-      <h1 class="text-xl font-bold text-white font-[family-name:var(--font-mono)]">
+      <h1 class="text-xl font-bold text-[var(--color-text-bright)] font-[family-name:var(--font-mono)]">
         {{ isEdit ? '编辑收藏' : '新建收藏' }}
       </h1>
       <router-link
         :to="{ name: 'AdminBookmarks' }"
-        class="text-sm text-[#555] hover:text-[#00d4aa] transition-colors font-[family-name:var(--font-mono)]"
+        class="text-sm text-[var(--color-text-subtle)] hover:text-[var(--color-accent)] transition-colors font-[family-name:var(--font-mono)]"
       >
         ← 返回列表
       </router-link>
@@ -91,7 +91,7 @@ async function handleSave() {
     <form @submit.prevent="handleSave" class="space-y-5">
       <!-- 标题 -->
       <div>
-        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">标题</label>
+        <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">标题</label>
         <input
           v-model="title"
           type="text"
@@ -102,7 +102,7 @@ async function handleSave() {
 
       <!-- 描述 -->
       <div>
-        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">描述</label>
+        <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">描述</label>
         <textarea
           v-model="description"
           placeholder="简短描述"
@@ -113,7 +113,7 @@ async function handleSave() {
 
       <!-- URL -->
       <div>
-        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">链接地址</label>
+        <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">链接地址</label>
         <input
           v-model="url"
           type="url"
@@ -139,7 +139,7 @@ async function handleSave() {
         </router-link>
         <span
           v-if="syncStatus === 'success'"
-          class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]"
+          class="text-[var(--color-accent)] text-sm font-[family-name:var(--font-mono)]"
         >✓ 已同步到 GitHub</span>
         <span
           v-if="syncStatus === 'fail'"

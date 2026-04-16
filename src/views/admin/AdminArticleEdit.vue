@@ -100,12 +100,12 @@ async function handleSave() {
 <template>
   <div class="max-w-3xl">
     <div class="flex items-center justify-between mb-6">
-      <h1 class="text-xl font-bold text-white font-[family-name:var(--font-mono)]">
+      <h1 class="text-xl font-bold text-[var(--color-text-bright)] font-[family-name:var(--font-mono)]">
         {{ isEdit ? '编辑文章' : '新建文章' }}
       </h1>
       <router-link
         :to="{ name: 'AdminArticles' }"
-        class="text-sm text-[#555] hover:text-[#00d4aa] transition-colors font-[family-name:var(--font-mono)]"
+        class="text-sm text-[var(--color-text-subtle)] hover:text-[var(--color-accent)] transition-colors font-[family-name:var(--font-mono)]"
       >
         ← 返回列表
       </router-link>
@@ -114,15 +114,15 @@ async function handleSave() {
     <form @submit.prevent="handleSave" class="space-y-5">
       <!-- 文章类型 -->
       <div>
-        <label class="block text-sm text-[#999] mb-2 font-[family-name:var(--font-mono)]">文章类型</label>
+        <label class="block text-sm text-[var(--color-text-secondary)] mb-2 font-[family-name:var(--font-mono)]">文章类型</label>
         <div class="flex gap-3">
           <button
             type="button"
             :class="[
               'px-4 py-2 rounded-lg text-sm border transition-colors font-[family-name:var(--font-mono)]',
               articleType === 'local'
-                ? 'bg-[#00d4aa]/10 border-[#00d4aa]/30 text-[#00d4aa]'
-                : 'bg-[#1e1e2e] border-[#2a2a3a] text-[#666] hover:border-[#444]',
+                ? 'bg-[var(--color-accent-dim)] border-[var(--color-accent-border)] text-[var(--color-accent)]'
+                : 'bg-[var(--color-bg-card)] border-[var(--color-border)] text-[var(--color-text-muted)] hover:border-[var(--color-border-hover)]',
             ]"
             @click="articleType = 'local'"
           >
@@ -134,7 +134,7 @@ async function handleSave() {
               'px-4 py-2 rounded-lg text-sm border transition-colors font-[family-name:var(--font-mono)]',
               articleType === 'external'
                 ? 'bg-amber-500/10 border-amber-500/30 text-amber-400'
-                : 'bg-[#1e1e2e] border-[#2a2a3a] text-[#666] hover:border-[#444]',
+                : 'bg-[var(--color-bg-card)] border-[var(--color-border)] text-[var(--color-text-muted)] hover:border-[var(--color-border-hover)]',
             ]"
             @click="articleType = 'external'"
           >
@@ -145,7 +145,7 @@ async function handleSave() {
 
       <!-- 标题 -->
       <div>
-        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">标题</label>
+        <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">标题</label>
         <input
           v-model="title"
           type="text"
@@ -156,7 +156,7 @@ async function handleSave() {
 
       <!-- 摘要 -->
       <div>
-        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">摘要</label>
+        <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">摘要</label>
         <textarea
           v-model="summary"
           placeholder="简短描述文章内容"
@@ -168,10 +168,10 @@ async function handleSave() {
       <!-- 本地文章：Markdown 编辑器 -->
       <div v-if="articleType === 'local'">
         <div class="flex items-center justify-between mb-1.5">
-          <label class="text-sm text-[#999] font-[family-name:var(--font-mono)]">内容（Markdown）</label>
+          <label class="text-sm text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)]">内容（Markdown）</label>
           <button
             type="button"
-            class="text-xs text-[#00d4aa] hover:text-[#00d4aa]/80 font-[family-name:var(--font-mono)]"
+            class="text-xs text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] font-[family-name:var(--font-mono)]"
             @click="showPreview = !showPreview"
           >
             {{ showPreview ? '&lt; 编辑' : '预览 &gt;' }}
@@ -179,7 +179,7 @@ async function handleSave() {
         </div>
         <div
           v-if="showPreview"
-          class="markdown-body p-5 bg-[#1e1e2e] border border-[#2a2a3a] rounded-lg min-h-[300px]"
+          class="markdown-body p-5 bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-lg min-h-[300px]"
           v-html="previewHtml"
         />
         <textarea
@@ -193,7 +193,7 @@ async function handleSave() {
 
       <!-- 外链文章：URL -->
       <div v-if="articleType === 'external'">
-        <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">公众号链接</label>
+        <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">公众号链接</label>
         <input
           v-model="externalUrl"
           type="url"
@@ -219,7 +219,7 @@ async function handleSave() {
         </router-link>
         <span
           v-if="syncStatus === 'success'"
-          class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]"
+          class="text-[var(--color-accent)] text-sm font-[family-name:var(--font-mono)]"
         >✓ 已同步到 GitHub</span>
         <span
           v-if="syncStatus === 'fail'"

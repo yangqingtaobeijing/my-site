@@ -5,16 +5,61 @@
 :root {
   --color-bg: #0a0a0a;
   --color-bg-card: #1e1e2e;
+  --color-bg-card-soft: rgba(30, 30, 46, 0.5);
   --color-bg-elevated: #161622;
+  --color-bg-elevated-soft: rgba(22, 22, 34, 0.5);
   --color-text: #e0e0e0;
+  --color-text-secondary: #999999;
   --color-text-muted: #666;
+  --color-text-subtle: #555;
+  --color-text-faint: #333;
   --color-text-bright: #ffffff;
   --color-accent: #00d4aa;
+  --color-accent-hover: rgba(0, 212, 170, 0.8);
+  --color-accent-soft: rgba(0, 212, 170, 0.7);
+  --color-accent-muted: rgba(0, 212, 170, 0.5);
   --color-accent-dim: rgba(0, 212, 170, 0.15);
+  --color-accent-border: rgba(0, 212, 170, 0.3);
+  --color-accent-contrast: #0a0a0a;
   --color-border: #2a2a3a;
+  --color-border-subtle: #1e1e2e;
   --color-border-hover: #00d4aa;
+  --color-header-bg: rgba(10, 10, 10, 0.9);
+  --color-dot: #2a2a3a;
+  --shadow-accent: 0 0 15px rgba(0, 212, 170, 0.15), 0 0 30px rgba(0, 212, 170, 0.05);
+  --shadow-avatar: 0 0 20px rgba(0, 212, 170, 0.3), 0 0 40px rgba(0, 212, 170, 0.1);
   --font-mono: 'Menlo', 'Monaco', 'Cascadia Code', 'Consolas', 'Courier New', monospace;
   --font-sans: system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --color-bg: #f6f8f7;
+  --color-bg-card: #ffffff;
+  --color-bg-card-soft: rgba(255, 255, 255, 0.72);
+  --color-bg-elevated: #edf2f0;
+  --color-bg-elevated-soft: rgba(237, 242, 240, 0.72);
+  --color-text: #2c3533;
+  --color-text-secondary: #56615e;
+  --color-text-muted: #66726f;
+  --color-text-subtle: #7a8582;
+  --color-text-faint: #98a4a0;
+  --color-text-bright: #121817;
+  --color-accent: #008f7a;
+  --color-accent-hover: rgba(0, 116, 99, 0.86);
+  --color-accent-soft: rgba(0, 143, 122, 0.7);
+  --color-accent-muted: rgba(0, 143, 122, 0.48);
+  --color-accent-dim: rgba(0, 143, 122, 0.12);
+  --color-accent-border: rgba(0, 143, 122, 0.28);
+  --color-accent-contrast: #ffffff;
+  --color-border: #d8e0dd;
+  --color-border-subtle: #e7ecea;
+  --color-border-hover: #8fb4ac;
+  --color-header-bg: rgba(246, 248, 247, 0.9);
+  --color-dot: #d4ddda;
+  --shadow-accent: 0 12px 30px rgba(0, 95, 82, 0.08), 0 0 0 1px rgba(0, 143, 122, 0.08);
+  --shadow-avatar: 0 10px 26px rgba(0, 95, 82, 0.14), 0 0 0 4px rgba(0, 143, 122, 0.08);
+  color-scheme: light;
 }
 
 /* ==================== 全局基础样式 ==================== */
@@ -26,9 +71,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body,
+button,
+a,
+input,
+textarea {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
 /* 微妙点阵背景 */
 .dot-grid-bg {
-  background-image: radial-gradient(circle, #2a2a3a 1px, transparent 1px);
+  background-image: radial-gradient(circle, var(--color-dot) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -53,7 +106,7 @@ body {
 
 .glow-border:hover {
   border-color: var(--color-accent);
-  box-shadow: 0 0 15px rgba(0, 212, 170, 0.15), 0 0 30px rgba(0, 212, 170, 0.05);
+  box-shadow: var(--shadow-accent);
   transform: translateY(-2px);
 }
 
@@ -80,7 +133,7 @@ body {
 
 /* ==================== 头像发光效果 ==================== */
 .avatar-glow {
-  box-shadow: 0 0 20px rgba(0, 212, 170, 0.3), 0 0 40px rgba(0, 212, 170, 0.1);
+  box-shadow: var(--shadow-avatar);
   border: 2px solid var(--color-accent);
 }
 
@@ -259,7 +312,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #2a2a3a;
+  background-color: var(--color-border);
   border-radius: 3px;
 }
 
@@ -282,7 +335,7 @@ body {
 
 .admin-input:focus {
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 2px rgba(0, 212, 170, 0.15);
+  box-shadow: 0 0 0 2px var(--color-accent-dim);
 }
 
 .admin-input::placeholder {
@@ -292,7 +345,7 @@ body {
 /* ==================== 管理后台按钮 ==================== */
 .btn-primary {
   background-color: var(--color-accent);
-  color: #0a0a0a;
+  color: var(--color-accent-contrast);
   padding: 0.625rem 1.25rem;
   border-radius: 0.5rem;
   font-size: 0.875rem;

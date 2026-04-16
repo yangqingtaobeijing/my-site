@@ -184,14 +184,14 @@ function handleImport() {
 
 <template>
   <div class="max-w-xl space-y-10">
-    <h1 class="text-xl font-bold text-white font-[family-name:var(--font-mono)]">站点设置</h1>
+    <h1 class="text-xl font-bold text-[var(--color-text-bright)] font-[family-name:var(--font-mono)]">站点设置</h1>
 
     <!-- 基本信息 -->
     <section>
-      <h2 class="text-base font-semibold text-[#e0e0e0] mb-4 font-[family-name:var(--font-mono)]">基本信息</h2>
+      <h2 class="text-base font-semibold text-[var(--color-text)] mb-4 font-[family-name:var(--font-mono)]">基本信息</h2>
       <form @submit.prevent="saveConfig" class="space-y-4">
         <div>
-          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">网站标题</label>
+          <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">网站标题</label>
           <input
             v-model="siteTitle"
             type="text"
@@ -199,7 +199,7 @@ function handleImport() {
           />
         </div>
         <div>
-          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">副标题</label>
+          <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">副标题</label>
           <input
             v-model="subtitle"
             type="text"
@@ -207,7 +207,7 @@ function handleImport() {
           />
         </div>
         <div>
-          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">个人简介</label>
+          <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">个人简介</label>
           <textarea
             v-model="bio"
             rows="3"
@@ -215,7 +215,7 @@ function handleImport() {
           />
         </div>
         <div>
-          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">头像 URL</label>
+          <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">头像 URL</label>
           <input
             v-model="avatarUrl"
             type="url"
@@ -230,20 +230,20 @@ function handleImport() {
           >
             保存设置
           </button>
-          <span v-if="configSaved" class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]">✓ 已保存</span>
+          <span v-if="configSaved" class="text-[var(--color-accent)] text-sm font-[family-name:var(--font-mono)]">✓ 已保存</span>
         </div>
       </form>
     </section>
 
     <!-- GitHub 同步设置 -->
-    <section class="border-t border-[#2a2a3a] pt-8">
-      <h2 class="text-base font-semibold text-[#e0e0e0] mb-2 font-[family-name:var(--font-mono)]">GitHub 同步</h2>
-      <p class="text-sm text-[#666] mb-4">
+    <section class="border-t border-[var(--color-border)] pt-8">
+      <h2 class="text-base font-semibold text-[var(--color-text)] mb-2 font-[family-name:var(--font-mono)]">GitHub 同步</h2>
+      <p class="text-sm text-[var(--color-text-muted)] mb-4">
         配置后，文章和收藏数据会自动同步到 GitHub 仓库，通过 GitHub Pages 发布。
       </p>
       <div class="space-y-4">
         <div>
-          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">Owner</label>
+          <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">Owner</label>
           <input
             v-model="ghOwner"
             type="text"
@@ -252,7 +252,7 @@ function handleImport() {
           />
         </div>
         <div>
-          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">Repo</label>
+          <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">Repo</label>
           <input
             v-model="ghRepo"
             type="text"
@@ -261,7 +261,7 @@ function handleImport() {
           />
         </div>
         <div>
-          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">Branch</label>
+          <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">Branch</label>
           <input
             v-model="ghBranch"
             type="text"
@@ -270,7 +270,7 @@ function handleImport() {
           />
         </div>
         <div>
-          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">
+          <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">
             Personal Access Token
           </label>
           <input
@@ -279,15 +279,15 @@ function handleImport() {
             placeholder="ghp_xxxx..."
             class="admin-input"
           />
-          <p class="text-xs text-[#444] mt-1.5">
+          <p class="text-xs text-[var(--color-text-faint)] mt-1.5">
             在
             <a
               href="https://github.com/settings/tokens"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-[#00d4aa]/70 hover:text-[#00d4aa]"
+              class="text-[var(--color-accent-soft)] hover:text-[var(--color-accent)]"
             >GitHub Settings → Tokens</a>
-            创建，需要 <code class="text-[#00d4aa]/70">repo</code> 权限
+            创建，需要 <code class="text-[var(--color-accent-soft)]">repo</code> 权限
           </p>
         </div>
         <div class="flex items-center gap-3 pt-2 flex-wrap">
@@ -316,10 +316,10 @@ function handleImport() {
           </button>
         </div>
         <div class="flex items-center gap-3">
-          <span v-if="ghSaved" class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]">✓ 配置已保存</span>
+          <span v-if="ghSaved" class="text-[var(--color-accent)] text-sm font-[family-name:var(--font-mono)]">✓ 配置已保存</span>
           <span
             v-if="ghTestResult === 'success'"
-            class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]"
+            class="text-[var(--color-accent)] text-sm font-[family-name:var(--font-mono)]"
           >✓ 连接成功</span>
           <span
             v-if="ghTestResult === 'fail'"
@@ -327,7 +327,7 @@ function handleImport() {
           >✗ 连接失败，请检查配置</span>
           <span
             v-if="ghSyncResult === 'success'"
-            class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]"
+            class="text-[var(--color-accent)] text-sm font-[family-name:var(--font-mono)]"
           >✓ 全量同步完成</span>
           <span
             v-if="ghSyncResult === 'fail'"
@@ -338,11 +338,11 @@ function handleImport() {
     </section>
 
     <!-- 修改密码 -->
-    <section class="border-t border-[#2a2a3a] pt-8">
-      <h2 class="text-base font-semibold text-[#e0e0e0] mb-4 font-[family-name:var(--font-mono)]">修改密码</h2>
+    <section class="border-t border-[var(--color-border)] pt-8">
+      <h2 class="text-base font-semibold text-[var(--color-text)] mb-4 font-[family-name:var(--font-mono)]">修改密码</h2>
       <form @submit.prevent="changePassword" class="space-y-4">
         <div>
-          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">旧密码</label>
+          <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">旧密码</label>
           <input
             v-model="oldPassword"
             type="password"
@@ -350,7 +350,7 @@ function handleImport() {
           />
         </div>
         <div>
-          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">新密码</label>
+          <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">新密码</label>
           <input
             v-model="newPassword"
             type="password"
@@ -358,7 +358,7 @@ function handleImport() {
           />
         </div>
         <div>
-          <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">确认新密码</label>
+          <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">确认新密码</label>
           <input
             v-model="confirmNewPassword"
             type="password"
@@ -375,15 +375,15 @@ function handleImport() {
           >
             修改密码
           </button>
-          <span v-if="passwordSaved" class="text-[#00d4aa] text-sm font-[family-name:var(--font-mono)]">✓ 密码已修改</span>
+          <span v-if="passwordSaved" class="text-[var(--color-accent)] text-sm font-[family-name:var(--font-mono)]">✓ 密码已修改</span>
         </div>
       </form>
     </section>
 
     <!-- 数据导入导出 -->
-    <section class="border-t border-[#2a2a3a] pt-8">
-      <h2 class="text-base font-semibold text-[#e0e0e0] mb-2 font-[family-name:var(--font-mono)]">数据管理</h2>
-      <p class="text-sm text-[#666] mb-4">
+    <section class="border-t border-[var(--color-border)] pt-8">
+      <h2 class="text-base font-semibold text-[var(--color-text)] mb-2 font-[family-name:var(--font-mono)]">数据管理</h2>
+      <p class="text-sm text-[var(--color-text-muted)] mb-4">
         导出数据可以备份到其他地方，换浏览器时通过导入恢复数据。
       </p>
       <div class="flex gap-3">
@@ -400,7 +400,7 @@ function handleImport() {
           📥 导入数据
         </button>
       </div>
-      <span v-if="importSuccess" class="text-[#00d4aa] text-sm mt-2 block font-[family-name:var(--font-mono)]">✓ 导入成功</span>
+      <span v-if="importSuccess" class="text-[var(--color-accent)] text-sm mt-2 block font-[family-name:var(--font-mono)]">✓ 导入成功</span>
     </section>
   </div>
 </template>

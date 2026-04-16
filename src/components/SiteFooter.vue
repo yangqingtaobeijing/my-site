@@ -3,10 +3,10 @@
 </script>
 
 <template>
-  <footer class="border-t border-[#2a2a3a] py-8 mt-16">
-    <div class="mx-auto max-w-[800px] px-6 text-center text-sm text-[#333] font-[family-name:var(--font-mono)]">
+  <footer class="border-t border-[var(--color-border)] py-8 mt-16">
+    <div class="mx-auto max-w-[800px] px-6 text-center text-sm text-[var(--color-text-faint)] font-[family-name:var(--font-mono)]">
       <p>
-        © {{ new Date().getFullYear() }} · 用 <span class="text-[#00d4aa]">❤</span> 构建
+        © {{ new Date().getFullYear() }} · 用 <span class="text-[var(--color-accent)]">❤</span> 构建
       </p>
     </div>
   </footer>

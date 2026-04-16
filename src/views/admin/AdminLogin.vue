@@ -79,9 +79,9 @@ function handleSubmit() {
 </script>
 
 <template>
-  <div class="min-h-screen bg-[#0a0a0a] dot-grid-bg flex items-center justify-center px-4">
+  <div class="min-h-screen bg-[var(--color-bg)] dot-grid-bg flex items-center justify-center px-4">
     <div class="w-full max-w-sm">
-      <div class="bg-[#1e1e2e] rounded-xl border border-[#2a2a3a] p-8">
+      <div class="bg-[var(--color-bg-card)] rounded-xl border border-[var(--color-border)] p-8">
         <!-- 终端风格标题 -->
         <div class="flex items-center gap-2 mb-6">
           <div class="flex gap-1.5">
@@ -89,19 +89,19 @@ function handleSubmit() {
             <span class="w-3 h-3 rounded-full bg-[#febc2e]" />
             <span class="w-3 h-3 rounded-full bg-[#28c840]" />
           </div>
-          <span class="text-xs text-[#555] font-[family-name:var(--font-mono)] ml-2">admin@site ~ %</span>
+          <span class="text-xs text-[var(--color-text-subtle)] font-[family-name:var(--font-mono)] ml-2">admin@site ~ %</span>
         </div>
 
-        <h1 class="text-xl font-bold text-white text-center mb-2 font-[family-name:var(--font-mono)]">
+        <h1 class="text-xl font-bold text-[var(--color-text-bright)] text-center mb-2 font-[family-name:var(--font-mono)]">
           管理后台
         </h1>
-        <p class="text-sm text-[#666] text-center mb-8 font-[family-name:var(--font-mono)]">
+        <p class="text-sm text-[var(--color-text-muted)] text-center mb-8 font-[family-name:var(--font-mono)]">
           {{ hasPassword ? '// 请输入密码登录' : '// 首次使用，请设置管理密码' }}
         </p>
 
         <form @submit.prevent="handleSubmit" class="space-y-4">
           <div>
-            <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">密码</label>
+            <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">密码</label>
             <input
               v-model="password"
               type="password"
@@ -111,7 +111,7 @@ function handleSubmit() {
           </div>
 
           <div v-if="!hasPassword">
-            <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">确认密码</label>
+            <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">确认密码</label>
             <input
               v-model="confirmPassword"
               type="password"
@@ -121,9 +121,9 @@ function handleSubmit() {
           </div>
 
           <!-- GitHub Token（可选） -->
-          <div class="border-t border-[#2a2a3a] pt-4 mt-4">
-            <label class="block text-sm text-[#999] mb-1.5 font-[family-name:var(--font-mono)]">
-              GitHub Token <span class="text-[#555]">（可选）</span>
+          <div class="border-t border-[var(--color-border)] pt-4 mt-4">
+            <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">
+              GitHub Token <span class="text-[var(--color-text-subtle)]">（可选）</span>
             </label>
             <input
               v-model="ghToken"
@@ -131,13 +131,13 @@ function handleSubmit() {
               placeholder="ghp_xxxx...（用于同步数据到 GitHub）"
               class="admin-input"
             />
-            <p class="text-xs text-[#444] mt-1.5">
+            <p class="text-xs text-[var(--color-text-faint)] mt-1.5">
               在
               <a
                 href="https://github.com/settings/tokens"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-[#00d4aa]/70 hover:text-[#00d4aa]"
+                class="text-[var(--color-accent-soft)] hover:text-[var(--color-accent)]"
               >Settings → Tokens</a>
               创建，勾选 repo 权限。也可以登录后在设置页配置。
             </p>
@@ -156,7 +156,7 @@ function handleSubmit() {
         </form>
 
         <div class="mt-6 text-center">
-          <router-link to="/" class="text-xs text-[#555] hover:text-[#00d4aa] transition-colors font-[family-name:var(--font-mono)]">
+          <router-link to="/" class="text-xs text-[var(--color-text-subtle)] hover:text-[var(--color-accent)] transition-colors font-[family-name:var(--font-mono)]">
             ← cd /home
           </router-link>
         </div>

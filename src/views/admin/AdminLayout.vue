@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import { useTheme } from '../../utils/theme'
 
 const router = useRouter()
+const { theme, nextThemeLabel, toggleTheme } = useTheme()
 
 /** 退出登录 */
 function logout() {
@@ -19,16 +21,27 @@ const navItems = [
 </script>
 
 <template>
-  <div class="min-h-screen bg-[#0a0a0a] flex">
+  <div class="min-h-screen bg-[var(--color-bg)] flex">
     <!-- 侧边栏 -->
-    <aside class="w-56 bg-[#161622] border-r border-[#2a2a3a] flex flex-col shrink-0">
-      <div class="p-5 border-b border-[#2a2a3a]">
-        <router-link to="/" class="text-xs text-[#555] hover:text-[#00d4aa] transition-colors font-[family-name:var(--font-mono)]">
+    <aside class="w-56 bg-[var(--color-bg-elevated)] border-r border-[var(--color-border)] flex flex-col shrink-0">
+      <div class="p-5 border-b border-[var(--color-border)]">
+        <router-link to="/" class="text-xs text-[var(--color-text-subtle)] hover:text-[var(--color-accent)] transition-colors font-[family-name:var(--font-mono)]">
           ← 返回前台
         </router-link>
-        <h2 class="text-base font-semibold text-white mt-2 font-[family-name:var(--font-mono)]">
-          管理后台
-        </h2>
+        <div class="mt-2 flex items-center justify-between gap-3">
+          <h2 class="text-base font-semibold text-[var(--color-text-bright)] font-[family-name:var(--font-mono)]">
+            管理后台
+          </h2>
+          <button
+            type="button"
+            class="h-7 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-card-soft)] px-2 text-xs text-[var(--color-text-muted)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors font-[family-name:var(--font-mono)]"
+            :aria-label="`切换到${nextThemeLabel}主题`"
+            :title="`切换到${nextThemeLabel}主题`"
+            @click="toggleTheme"
+          >
+            {{ theme === 'dark' ? '浅色' : '深色' }}
+          </button>
+        </div>
       </div>
 
       <nav class="flex-1 p-3 space-y-1">
@@ -36,17 +49,17 @@ const navItems = [
           v-for="item in navItems"
           :key="item.name"
           :to="{ name: item.name }"
-          class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-[#999] hover:bg-[#1e1e2e] hover:text-[#e0e0e0] transition-colors"
-          active-class="!bg-[#00d4aa]/10 !text-[#00d4aa] font-medium"
+          class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-card)] hover:text-[var(--color-text)] transition-colors"
+          active-class="!bg-[var(--color-accent-dim)] !text-[var(--color-accent)] font-medium"
         >
           <span>{{ item.icon }}</span>
           <span>{{ item.label }}</span>
         </router-link>
       </nav>
 
-      <div class="p-3 border-t border-[#2a2a3a]">
+      <div class="p-3 border-t border-[var(--color-border)]">
         <button
-          class="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-[#555] hover:text-red-400 hover:bg-red-400/10 transition-colors"
+          class="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-[var(--color-text-subtle)] hover:text-red-400 hover:bg-red-400/10 transition-colors"
           @click="logout"
         >
           <span>🚪</span>
