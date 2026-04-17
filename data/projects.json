@@ -95,6 +95,12 @@
     "description": "产品经理的AI学习平台",
     "url": "https://yangqingtaobeijing.github.io/ai-learning/",
     "sourceUrl": "https://github.com/yangqingtaobeijing/ai-learning",
+    "tags": [
+      "大模型",
+      "AI学习",
+      "AI",
+      "AI Agent"
+    ],
     "createdAt": "2026-04-17T05:33:54.905Z"
   }
 ]
