@@ -102,5 +102,18 @@
       "AI Agent"
     ],
     "createdAt": "2026-04-17T05:33:54.905Z"
+  },
+  {
+    "id": "930f10fe-41cd-443d-b118-1b1b9dec6975",
+    "title": "MinimaLife",
+    "description": "AI 极简生活管家,帮你收拾家、拦住冲动购物、养成断舍离习惯",
+    "url": "https://yangqingtaobeijing.github.io/minimalife/",
+    "coverUrl": "https://github.com/yangqingtaobeijing/minimalife",
+    "tags": [
+      "生活管家",
+      "AI生活助手",
+      "简约生活"
+    ],
+    "createdAt": "2026-04-17T10:49:10.143Z"
   }
 ]
