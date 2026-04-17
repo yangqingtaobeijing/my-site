@@ -88,5 +88,13 @@
       "交易决策支持"
     ],
     "createdAt": "2026-04-16T08:22:44.467Z"
+  },
+  {
+    "id": "f571a124-068a-40a6-82c7-8f47118d77f4",
+    "title": "AI学堂",
+    "description": "产品经理的AI学习平台",
+    "url": "https://yangqingtaobeijing.github.io/ai-learning/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/ai-learning",
+    "createdAt": "2026-04-17T05:33:54.905Z"
   }
 ]
