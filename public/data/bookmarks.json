@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "id": "kp01",
+    "title": "Karpathy：AI 能力认知的巨大鸿沟——免费版 ChatGPT 和顶级 Agent 模型是两个世界",
+    "url": "https://x.com/karpathy",
+    "description": "用免费版 ChatGPT 评判 AI 能力就像用翻盖手机评判智能手机。顶级 Agent 模型在编程等技术领域的进步令人震惊。",
+    "tags": ["AI", "Karpathy", "AI能力"],
+    "createdAt": "2026-04-09T00:00:00.000Z"
+  },
+  {
+    "id": "kp02",
+    "title": "Karpathy：用 LLM 构建个人知识库——我的第二大脑工作流",
+    "url": "https://x.com/karpathy",
+    "description": "把原始资料索引到 raw/ 目录，LLM 自动编译成 wiki（.md 文件），用 Obsidian 浏览。这条推文获得近 2000 万浏览。",
+    "tags": ["AI", "Karpathy", "知识管理"],
+    "createdAt": "2026-04-02T00:00:00.000Z"
+  },
+  {
+    "id": "kp03",
+    "title": "Karpathy：分享 idea file 比分享代码更有价值",
+    "url": "https://x.com/karpathy",
+    "description": "LLM Agent 时代，分享架构思路让别人的 Agent 定制构建，比分享具体代码更有意义。",
+    "tags": ["AI", "Karpathy", "思维方式"],
+    "createdAt": "2026-04-04T00:00:00.000Z"
+  },
+  {
+    "id": "kp04",
+    "title": "Karpathy：个人化的正确方式——File Over App，数据是你的",
+    "url": "https://x.com/karpathy",
+    "description": "数据应该是本地文件（Markdown/图片），显式可查看，可插入任意 AI，而不是锁在某个 AI 厂商系统里。",
+    "tags": ["AI", "Karpathy", "本地优先"],
+    "createdAt": "2026-04-04T00:00:00.000Z"
+  },
+  {
+    "id": "kp05",
+    "title": "Karpathy：LLM 写博客太有说服力？让它反驳自己——瞬间被说服了反面",
+    "url": "https://x.com/karpathy",
+    "description": "用 LLM 花 4 小时打磨论点，感觉完美。然后让它论证相反观点，结果被彻底说服。LLM 是形成独立观点的好工具。",
+    "tags": ["AI", "Karpathy", "思维工具"],
+    "createdAt": "2026-03-28T00:00:00.000Z"
+  },
+  {
+    "id": "kp06",
+    "title": "Karpathy：期待 Agent 能完成从代码到部署的全流程——DevOps 才是真正的难点",
+    "url": "https://x.com/karpathy",
+    "description": "做 menugen 最难的不是代码本身，是拼装各种服务（支付/认证/数据库/域名）。期待 Agent 能搞定整个 DevOps 生命周期。",
+    "tags": ["AI", "Karpathy", "DevOps"],
+    "createdAt": "2026-03-26T00:00:00.000Z"
+  },
+  {
+    "id": "kp07",
+    "title": "Karpathy：LLM 的记忆个性化问题——两个月前随口问的话题会被当成终身兴趣",
+    "url": "https://x.com/karpathy",
+    "description": "所有 LLM 都有这个问题：记忆功能太用力，把偶然提及的话题当成深层兴趣反复提起。",
+    "tags": ["AI", "Karpathy", "LLM"],
+    "createdAt": "2026-03-25T00:00:00.000Z"
+  },
+  {
+    "id": "kp08",
+    "title": "Karpathy：litellm 供应链攻击——pip install 就能偷走你所有密钥",
+    "url": "https://x.com/karpathy",
+    "description": "litellm 被投毒，安装后窃取 SSH 密钥、云凭证、API Key 等。攻击者的代码有 bug 导致内存爆满才被发现。",
+    "tags": ["安全", "Karpathy", "供应链攻击"],
+    "createdAt": "2026-03-24T00:00:00.000Z"
+  },
+  {
+    "id": "kp09",
+    "title": "Karpathy：npm axios 也被供应链攻击了——依赖管理的默认机制必须改变",
+    "url": "https://x.com/karpathy",
+    "description": "3 亿周下载量的 axios 被投毒。未固定版本的依赖就像定时炸弹，包管理器的默认行为必须改变。",
+    "tags": ["安全", "Karpathy", "供应链攻击"],
+    "createdAt": "2026-03-31T00:00:00.000Z"
+  },
+  {
+    "id": "kp10",
+    "title": "Karpathy：AI 赋能公民监督政府——透明度的瓶颈从信息获取变成了智能处理",
+    "url": "https://x.com/karpathy",
+    "description": "4000 页的法案在法律意义上透明，实际上对普通人不透明。AI 可以让更多人参与政府问责。",
+    "tags": ["AI", "Karpathy", "社会影响"],
+    "createdAt": "2026-04-04T00:00:00.000Z"
+  },
+  {
+    "id": "kp11",
+    "title": "Karpathy 收到 NVIDIA DGX Station GB300——需要 20 安培的秘密礼物",
+    "url": "https://x.com/karpathy",
+    "description": "Jensen 送了台 DGX Station GB300，将用来跑 Dobby the House Elf 等本地模型。",
+    "tags": ["AI", "Karpathy", "硬件"],
+    "createdAt": "2026-03-18T00:00:00.000Z"
+  },
+  {
+    "id": "kp12",
+    "title": "Karpathy 上 No Priors 播客：工程范式转变、AI 精神冲击、AutoResearch",
+    "url": "https://x.com/karpathy",
+    "description": "讨论工程领域的相变、AI psychosis、自动化研究、模型格局和二阶效应。",
+    "tags": ["AI", "Karpathy", "播客"],
+    "createdAt": "2026-03-21T00:00:00.000Z"
+  }
+]
