@@ -21,8 +21,8 @@
     "id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
     "title": "股票交易助手",
     "description": "一个股票交易前决策检查，覆盖关注列表、买入检查、卖出检查、风险设置和交易日志",
-    "url": "https://yangqingtaobeijing.github.io/stock-trading-assistant/",
-    "sourceUrl": "https://github.com/yangqingtaobeijing/stock-trading-assistant",
+    "url": "https://yangqingtaobeijing.github.io/codex-margin/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/codex-margin",
     "tags": ["美股", "A股", "交易决策支持"],
     "createdAt": "2026-04-18T01:00:00.000Z"
   },
