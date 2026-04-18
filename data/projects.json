@@ -5,11 +5,7 @@
     "description": "经典斗地主单机游戏，三级 AI 难度，完整牌型判断和策略系统",
     "url": "https://yangqingtaobeijing.github.io/doudizhu/",
     "sourceUrl": "https://github.com/yangqingtaobeijing/doudizhu",
-    "tags": [
-      "Vue",
-      "TypeScript",
-      "游戏"
-    ],
+    "tags": ["Vue", "TypeScript", "游戏"],
     "createdAt": "2026-04-15T05:49:43.290Z"
   },
   {
@@ -18,12 +14,7 @@
     "description": "情侣专属 Web 应用：恋爱时间轴、星空许愿、纪念日倒计时、心愿清单、今天吃什么转盘",
     "url": "https://yangqingtaobeijing.github.io/love-time/",
     "sourceUrl": "https://github.com/yangqingtaobeijing/love-time",
-    "tags": [
-      "Vue",
-      "TypeScript",
-      "Canvas",
-      "浪漫"
-    ],
+    "tags": ["Vue", "TypeScript", "Canvas", "浪漫"],
     "createdAt": "2026-04-16T01:19:00.000Z"
   },
   {
@@ -32,11 +23,7 @@
     "description": "个人元原则管理工具，按领域分类（家庭、健康、工作、生活），支持优先级、复盘周期和调用信号提醒",
     "url": "https://yangqingtaobeijing.github.io/metaprinciples-web/",
     "sourceUrl": "https://github.com/yangqingtaobeijing/metaprinciples-web",
-    "tags": [
-      "Vue",
-      "TypeScript",
-      "效率工具"
-    ],
+    "tags": ["Vue", "TypeScript", "效率工具"],
     "createdAt": "2026-04-16T01:24:00.000Z"
   },
   {
@@ -45,11 +32,7 @@
     "description": "情绪急救箱：呼吸引导、解压互动、生气代价可视化、反思清单、感恩日记、成就墙",
     "url": "https://yangqingtaobeijing.github.io/dont-be-angry/",
     "sourceUrl": "https://github.com/yangqingtaobeijing/dont-be-angry",
-    "tags": [
-      "Vue",
-      "TypeScript",
-      "治愈系"
-    ],
+    "tags": ["Vue", "TypeScript", "治愈系"],
     "createdAt": "2026-04-16T02:02:00.000Z"
   },
   {
@@ -58,9 +41,7 @@
     "description": "实时空气质量数据监控看板",
     "url": "https://yangqingtaobeijing.github.io/air-quality-dashboard/",
     "sourceUrl": "https://github.com/yangqingtaobeijing/air-quality-dashboard",
-    "tags": [
-      "数据看板"
-    ],
+    "tags": ["数据看板"],
     "createdAt": "2026-04-16T05:57:00.000Z"
   },
   {
@@ -69,51 +50,7 @@
     "description": "实时追踪 DXY、US10Y、WTI、VIX、BTC、纳指、标普 7 大指标，深色金融终端风格",
     "url": "https://yangqingtaobeijing.github.io/market-dashboard/",
     "sourceUrl": "https://github.com/yangqingtaobeijing/market-dashboard",
-    "tags": [
-      "Vue",
-      "TypeScript",
-      "金融数据"
-    ],
+    "tags": ["Vue", "TypeScript", "金融数据"],
     "createdAt": "2026-04-16T06:03:00.000Z"
-  },
-  {
-    "id": "95d93ee2-f00e-425a-9641-e113c5373bf4",
-    "title": "股票交易助手",
-    "description": "一个股票交易前决策检查，覆盖关注列表、买入检查、卖出检查、风险设置和交易日志",
-    "url": "https://yangqingtaobeijing.github.io/codex-margin/",
-    "sourceUrl": "https://github.com/yangqingtaobeijing/codex-margin",
-    "tags": [
-      "美股",
-      "A股",
-      "交易决策支持"
-    ],
-    "createdAt": "2026-04-16T08:22:44.467Z"
-  },
-  {
-    "id": "f571a124-068a-40a6-82c7-8f47118d77f4",
-    "title": "AI学堂",
-    "description": "产品经理的AI学习平台",
-    "url": "https://yangqingtaobeijing.github.io/ai-learning/",
-    "sourceUrl": "https://github.com/yangqingtaobeijing/ai-learning",
-    "tags": [
-      "大模型",
-      "AI学习",
-      "AI",
-      "AI Agent"
-    ],
-    "createdAt": "2026-04-17T05:33:54.905Z"
-  },
-  {
-    "id": "930f10fe-41cd-443d-b118-1b1b9dec6975",
-    "title": "MinimaLife",
-    "description": "AI 极简生活管家,帮你收拾家、拦住冲动购物、养成断舍离习惯",
-    "url": "https://yangqingtaobeijing.github.io/minimalife/",
-    "sourceUrl": "https://github.com/yangqingtaobeijing/minimalife",
-    "tags": [
-      "生活管家",
-      "AI生活助手",
-      "简约生活"
-    ],
-    "createdAt": "2026-04-17T10:49:10.143Z"
   }
 ]
