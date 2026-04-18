@@ -1,39 +1,39 @@
 [
   {
-    "id": "ef729c4a-030b-40bf-855e-051b3b21fa50",
-    "title": "斗地主",
-    "description": "经典斗地主单机游戏，三级 AI 难度，完整牌型判断和策略系统",
-    "url": "https://yangqingtaobeijing.github.io/doudizhu/",
-    "sourceUrl": "https://github.com/yangqingtaobeijing/doudizhu",
-    "tags": ["Vue", "TypeScript", "游戏"],
-    "createdAt": "2026-04-15T05:49:43.290Z"
+    "id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "title": "MinimaLife",
+    "description": "AI 极简生活管家：上传房间照片 AI 诊断杂乱点，生成三步整理方案、个性化收纳设计、购物欲拦截器、14天断舍离挑战",
+    "url": "https://yangqingtaobeijing.github.io/minimalife/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/minimalife",
+    "tags": ["Next.js", "TypeScript", "Gemini", "AI"],
+    "createdAt": "2026-04-18T01:30:00.000Z"
   },
   {
-    "id": "b3a7d1e2-9f4c-4e8a-a6d5-7c2f8e0b1d34",
-    "title": "恋爱时光",
-    "description": "情侣专属 Web 应用：恋爱时间轴、星空许愿、纪念日倒计时、心愿清单、今天吃什么转盘",
-    "url": "https://yangqingtaobeijing.github.io/love-time/",
-    "sourceUrl": "https://github.com/yangqingtaobeijing/love-time",
-    "tags": ["Vue", "TypeScript", "Canvas", "浪漫"],
-    "createdAt": "2026-04-16T01:19:00.000Z"
+    "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "title": "AI学堂",
+    "description": "产品经理的AI学习平台",
+    "url": "https://yangqingtaobeijing.github.io/ai-learning/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/ai-learning",
+    "tags": ["大模型", "AI学习", "AI", "AI Agent"],
+    "createdAt": "2026-04-18T01:00:00.000Z"
   },
   {
-    "id": "c4d8e2f1-a5b6-4c7d-9e0f-3a1b2c4d5e67",
-    "title": "元原则库",
-    "description": "个人元原则管理工具，按领域分类（家庭、健康、工作、生活），支持优先级、复盘周期和调用信号提醒",
-    "url": "https://yangqingtaobeijing.github.io/metaprinciples-web/",
-    "sourceUrl": "https://github.com/yangqingtaobeijing/metaprinciples-web",
-    "tags": ["Vue", "TypeScript", "效率工具"],
-    "createdAt": "2026-04-16T01:24:00.000Z"
+    "id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "title": "股票交易助手",
+    "description": "一个股票交易前决策检查，覆盖关注列表、买入检查、卖出检查、风险设置和交易日志",
+    "url": "https://yangqingtaobeijing.github.io/stock-trading-assistant/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/stock-trading-assistant",
+    "tags": ["美股", "A股", "交易决策支持"],
+    "createdAt": "2026-04-18T01:00:00.000Z"
   },
   {
-    "id": "d5e9f3a2-b6c7-4d8e-af01-4b2c3d6e7f89",
-    "title": "别生气啦",
-    "description": "情绪急救箱：呼吸引导、解压互动、生气代价可视化、反思清单、感恩日记、成就墙",
-    "url": "https://yangqingtaobeijing.github.io/dont-be-angry/",
-    "sourceUrl": "https://github.com/yangqingtaobeijing/dont-be-angry",
-    "tags": ["Vue", "TypeScript", "治愈系"],
-    "createdAt": "2026-04-16T02:02:00.000Z"
+    "id": "f7a1b5c4-d9e0-4f2a-c134-6b4d7e8f9a01",
+    "title": "美股行情看板",
+    "description": "实时追踪 DXY、US10Y、WTI、VIX、BTC、纳指、标普 7 大指标，深色金融终端风格",
+    "url": "https://yangqingtaobeijing.github.io/market-dashboard/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/market-dashboard",
+    "tags": ["Vue", "TypeScript", "金融数据"],
+    "createdAt": "2026-04-16T06:03:00.000Z"
   },
   {
     "id": "e6f0a4b3-c8d9-4e1f-b023-5a3c6d7e8f90",
@@ -45,12 +45,39 @@
     "createdAt": "2026-04-16T05:57:00.000Z"
   },
   {
-    "id": "f7a1b5c4-d9e0-4f2a-c134-6b4d7e8f9a01",
-    "title": "美股行情看板",
-    "description": "实时追踪 DXY、US10Y、WTI、VIX、BTC、纳指、标普 7 大指标，深色金融终端风格",
-    "url": "https://yangqingtaobeijing.github.io/market-dashboard/",
-    "sourceUrl": "https://github.com/yangqingtaobeijing/market-dashboard",
-    "tags": ["Vue", "TypeScript", "金融数据"],
-    "createdAt": "2026-04-16T06:03:00.000Z"
+    "id": "d5e9f3a2-b6c7-4d8e-af01-4b2c3d6e7f89",
+    "title": "别生气啦",
+    "description": "情绪急救箱：呼吸引导、解压互动、生气代价可视化、反思清单、感恩日记、成就墙",
+    "url": "https://yangqingtaobeijing.github.io/dont-be-angry/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/dont-be-angry",
+    "tags": ["Vue", "TypeScript", "治愈系"],
+    "createdAt": "2026-04-16T02:02:00.000Z"
+  },
+  {
+    "id": "c4d8e2f1-a5b6-4c7d-9e0f-3a1b2c4d5e67",
+    "title": "元原则库",
+    "description": "个人元原则管理工具，按领域分类（家庭、健康、工作、生活），支持优先级、复盘周期和调用信号提醒",
+    "url": "https://yangqingtaobeijing.github.io/metaprinciples-web/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/metaprinciples-web",
+    "tags": ["Vue", "TypeScript", "效率工具"],
+    "createdAt": "2026-04-16T01:24:00.000Z"
+  },
+  {
+    "id": "b3a7d1e2-9f4c-4e8a-a6d5-7c2f8e0b1d34",
+    "title": "恋爱时光",
+    "description": "情侣专属 Web 应用：恋爱时间轴、星空许愿、纪念日倒计时、心愿清单、今天吃什么转盘",
+    "url": "https://yangqingtaobeijing.github.io/love-time/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/love-time",
+    "tags": ["Vue", "TypeScript", "Canvas", "浪漫"],
+    "createdAt": "2026-04-16T01:19:00.000Z"
+  },
+  {
+    "id": "ef729c4a-030b-40bf-855e-051b3b21fa50",
+    "title": "斗地主",
+    "description": "经典斗地主单机游戏，三级 AI 难度，完整牌型判断和策略系统",
+    "url": "https://yangqingtaobeijing.github.io/doudizhu/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/doudizhu",
+    "tags": ["Vue", "TypeScript", "游戏"],
+    "createdAt": "2026-04-15T05:49:43.290Z"
   }
 ]
