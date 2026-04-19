@@ -121,8 +121,13 @@
     "id": "5f548dd6-5f8a-485e-afdb-92fd3a370de1",
     "title": "时钟工具站",
     "description": "世界时钟、专注助手、美股日历",
-    "url": "http://127.0.0.1:5173/clock-tools/#/world-clock",
+    "url": "https://yangqingtaobeijing.github.io/clock-tools/#/world-clock",
     "sourceUrl": "https://github.com/yangqingtaobeijing/clock-tools",
+    "tags": [
+      "美股日历",
+      "世界时钟",
+      "专注助手"
+    ],
     "createdAt": "2026-04-19T04:47:18.605Z"
   }
 ]
