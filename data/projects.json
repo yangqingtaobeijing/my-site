@@ -129,5 +129,18 @@
       "专注助手"
     ],
     "createdAt": "2026-04-19T04:47:18.605Z"
+  },
+  {
+    "id": "97ebd4cc-6f63-4dba-8c91-e0a8e4cd592e",
+    "title": "买菜助手",
+    "description": "选好菜，一键生成购物清单",
+    "url": "https://yangqingtaobeijing.github.io/meal-planner/#/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/meal-planner",
+    "tags": [
+      "Vue 3",
+      "TypeScript",
+      "Vite"
+    ],
+    "createdAt": "2026-04-20T03:50:25.588Z"
   }
 ]
