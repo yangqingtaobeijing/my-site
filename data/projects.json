@@ -142,5 +142,18 @@
       "Vite"
     ],
     "createdAt": "2026-04-20T03:50:25.588Z"
+  },
+  {
+    "id": "881a04d5-d938-40c7-ab6b-87df9e09d25b",
+    "title": "FeedRadar",
+    "description": "社交媒体智能订阅与邮件通知系统",
+    "url": "https://yangqingtaobeijing.github.io/feedradar/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/feedradar",
+    "tags": [
+      "YouTube",
+      "Twitter/X",
+      "DeepL API"
+    ],
+    "createdAt": "2026-04-22T01:23:33.898Z"
   }
 ]
