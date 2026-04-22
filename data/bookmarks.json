@@ -4,7 +4,11 @@
     "title": "Karpathy：AI 能力认知的巨大鸿沟——免费版 ChatGPT 和顶级 Agent 模型是两个世界",
     "url": "https://x.com/karpathy",
     "description": "用免费版 ChatGPT 评判 AI 能力就像用翻盖手机评判智能手机。顶级 Agent 模型在编程等技术领域的进步令人震惊。",
-    "tags": ["AI", "Karpathy", "AI能力"],
+    "tags": [
+      "AI",
+      "Karpathy",
+      "AI能力"
+    ],
     "createdAt": "2026-04-09T00:00:00.000Z"
   },
   {
@@ -12,7 +16,11 @@
     "title": "Karpathy：用 LLM 构建个人知识库——我的第二大脑工作流",
     "url": "https://x.com/karpathy",
     "description": "把原始资料索引到 raw/ 目录，LLM 自动编译成 wiki（.md 文件），用 Obsidian 浏览。这条推文获得近 2000 万浏览。",
-    "tags": ["AI", "Karpathy", "知识管理"],
+    "tags": [
+      "AI",
+      "Karpathy",
+      "知识管理"
+    ],
     "createdAt": "2026-04-02T00:00:00.000Z"
   },
   {
@@ -20,7 +28,11 @@
     "title": "Karpathy：分享 idea file 比分享代码更有价值",
     "url": "https://x.com/karpathy",
     "description": "LLM Agent 时代，分享架构思路让别人的 Agent 定制构建，比分享具体代码更有意义。",
-    "tags": ["AI", "Karpathy", "思维方式"],
+    "tags": [
+      "AI",
+      "Karpathy",
+      "思维方式"
+    ],
     "createdAt": "2026-04-04T00:00:00.000Z"
   },
   {
@@ -28,7 +40,11 @@
     "title": "Karpathy：个人化的正确方式——File Over App，数据是你的",
     "url": "https://x.com/karpathy",
     "description": "数据应该是本地文件（Markdown/图片），显式可查看，可插入任意 AI，而不是锁在某个 AI 厂商系统里。",
-    "tags": ["AI", "Karpathy", "本地优先"],
+    "tags": [
+      "AI",
+      "Karpathy",
+      "本地优先"
+    ],
     "createdAt": "2026-04-04T00:00:00.000Z"
   },
   {
@@ -36,7 +52,11 @@
     "title": "Karpathy：LLM 写博客太有说服力？让它反驳自己——瞬间被说服了反面",
     "url": "https://x.com/karpathy",
     "description": "用 LLM 花 4 小时打磨论点，感觉完美。然后让它论证相反观点，结果被彻底说服。LLM 是形成独立观点的好工具。",
-    "tags": ["AI", "Karpathy", "思维工具"],
+    "tags": [
+      "AI",
+      "Karpathy",
+      "思维工具"
+    ],
     "createdAt": "2026-03-28T00:00:00.000Z"
   },
   {
@@ -44,7 +64,11 @@
     "title": "Karpathy：期待 Agent 能完成从代码到部署的全流程——DevOps 才是真正的难点",
     "url": "https://x.com/karpathy",
     "description": "做 menugen 最难的不是代码本身，是拼装各种服务（支付/认证/数据库/域名）。期待 Agent 能搞定整个 DevOps 生命周期。",
-    "tags": ["AI", "Karpathy", "DevOps"],
+    "tags": [
+      "AI",
+      "Karpathy",
+      "DevOps"
+    ],
     "createdAt": "2026-03-26T00:00:00.000Z"
   },
   {
@@ -52,7 +76,11 @@
     "title": "Karpathy：LLM 的记忆个性化问题——两个月前随口问的话题会被当成终身兴趣",
     "url": "https://x.com/karpathy",
     "description": "所有 LLM 都有这个问题：记忆功能太用力，把偶然提及的话题当成深层兴趣反复提起。",
-    "tags": ["AI", "Karpathy", "LLM"],
+    "tags": [
+      "AI",
+      "Karpathy",
+      "LLM"
+    ],
     "createdAt": "2026-03-25T00:00:00.000Z"
   },
   {
@@ -60,7 +88,11 @@
     "title": "Karpathy：litellm 供应链攻击——pip install 就能偷走你所有密钥",
     "url": "https://x.com/karpathy",
     "description": "litellm 被投毒，安装后窃取 SSH 密钥、云凭证、API Key 等。攻击者的代码有 bug 导致内存爆满才被发现。",
-    "tags": ["安全", "Karpathy", "供应链攻击"],
+    "tags": [
+      "安全",
+      "Karpathy",
+      "供应链攻击"
+    ],
     "createdAt": "2026-03-24T00:00:00.000Z"
   },
   {
@@ -68,7 +100,11 @@
     "title": "Karpathy：npm axios 也被供应链攻击了——依赖管理的默认机制必须改变",
     "url": "https://x.com/karpathy",
     "description": "3 亿周下载量的 axios 被投毒。未固定版本的依赖就像定时炸弹，包管理器的默认行为必须改变。",
-    "tags": ["安全", "Karpathy", "供应链攻击"],
+    "tags": [
+      "安全",
+      "Karpathy",
+      "供应链攻击"
+    ],
     "createdAt": "2026-03-31T00:00:00.000Z"
   },
   {
@@ -76,7 +112,11 @@
     "title": "Karpathy：AI 赋能公民监督政府——透明度的瓶颈从信息获取变成了智能处理",
     "url": "https://x.com/karpathy",
     "description": "4000 页的法案在法律意义上透明，实际上对普通人不透明。AI 可以让更多人参与政府问责。",
-    "tags": ["AI", "Karpathy", "社会影响"],
+    "tags": [
+      "AI",
+      "Karpathy",
+      "社会影响"
+    ],
     "createdAt": "2026-04-04T00:00:00.000Z"
   },
   {
@@ -84,7 +124,11 @@
     "title": "Karpathy 收到 NVIDIA DGX Station GB300——需要 20 安培的秘密礼物",
     "url": "https://x.com/karpathy",
     "description": "Jensen 送了台 DGX Station GB300，将用来跑 Dobby the House Elf 等本地模型。",
-    "tags": ["AI", "Karpathy", "硬件"],
+    "tags": [
+      "AI",
+      "Karpathy",
+      "硬件"
+    ],
     "createdAt": "2026-03-18T00:00:00.000Z"
   },
   {
@@ -92,7 +136,139 @@
     "title": "Karpathy 上 No Priors 播客：工程范式转变、AI 精神冲击、AutoResearch",
     "url": "https://x.com/karpathy",
     "description": "讨论工程领域的相变、AI psychosis、自动化研究、模型格局和二阶效应。",
-    "tags": ["AI", "Karpathy", "播客"],
+    "tags": [
+      "AI",
+      "Karpathy",
+      "播客"
+    ],
     "createdAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "8cc69419-0bd1-45b3-a0f0-d7adf188ead0",
+    "title": "Claude 提示工程指南（官方）",
+    "url": "https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/overview",
+    "description": "Anthropic 官方提示工程文档，涵盖从基础到进阶的完整提示技巧，包括角色设定、XML结构化、思维链等核心方法。",
+    "tags": [
+      "Claude",
+      "提示工程",
+      "Anthropic官方"
+    ],
+    "createdAt": "2026-04-22T16:42:33.717856"
+  },
+  {
+    "id": "6a5678c5-96a1-427f-a625-659c925f02db",
+    "title": "Claude API 快速入门（官方）",
+    "url": "https://docs.anthropic.com/zh-CN/docs/quickstart",
+    "description": "Anthropic 官方 API 快速上手指南，10分钟内完成第一个 Claude API 调用，适合开发者入门。",
+    "tags": [
+      "Claude",
+      "API",
+      "Anthropic官方",
+      "开发者"
+    ],
+    "createdAt": "2026-04-22T16:42:33.717868"
+  },
+  {
+    "id": "1ec81add-9735-411d-8e6e-dcef124201b8",
+    "title": "Claude 模型概览（官方）",
+    "url": "https://docs.anthropic.com/zh-CN/docs/about-claude/models/overview",
+    "description": "所有 Claude 模型的官方对比，包括 Opus、Sonnet、Haiku 的能力差异、上下文窗口大小和适用场景。",
+    "tags": [
+      "Claude",
+      "模型",
+      "Anthropic官方"
+    ],
+    "createdAt": "2026-04-22T16:42:33.717873"
+  },
+  {
+    "id": "e123dbbe-9a90-4ec9-9f5e-253bf79ebd24",
+    "title": "Constitutional AI：无害 AI 的训练方法",
+    "url": "https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback",
+    "description": "Anthropic 发布的 Constitutional AI 研究论文，解释如何通过让 AI 自我批评来训练出既有帮助又无害的模型，是理解 Claude 工作原理的核心论文。",
+    "tags": [
+      "Claude",
+      "AI安全",
+      "Constitutional AI",
+      "Anthropic研究"
+    ],
+    "createdAt": "2026-04-22T16:42:33.717878"
+  },
+  {
+    "id": "9cd132f9-423e-4a4c-8e38-3e7fc2e75cb9",
+    "title": "Claude 的核心价值观：模型规范（官方）",
+    "url": "https://www.anthropic.com/claude-s-constitution",
+    "description": "Anthropic 公开的 Claude 行为准则，定义了 Claude 的价值观、优先级和行为边界，是理解为什么 Claude 会如此回应的权威文档。",
+    "tags": [
+      "Claude",
+      "AI安全",
+      "价值观",
+      "Anthropic官方"
+    ],
+    "createdAt": "2026-04-22T16:42:33.717882"
+  },
+  {
+    "id": "79e2aa8d-1888-4d9b-83cf-32a15d49af4c",
+    "title": "Claude 工具使用（Function Calling）指南",
+    "url": "https://docs.anthropic.com/zh-CN/docs/build-with-claude/tool-use/overview",
+    "description": "官方工具调用文档，教你如何让 Claude 调用外部 API、执行代码等，实现真正的 AI Agent 能力。",
+    "tags": [
+      "Claude",
+      "Tool Use",
+      "AI Agent",
+      "Anthropic官方"
+    ],
+    "createdAt": "2026-04-22T16:42:33.717886"
+  },
+  {
+    "id": "55674997-d9aa-42ac-be3b-81cdd9196432",
+    "title": "Claude 扩展思维（Extended Thinking）指南",
+    "url": "https://docs.anthropic.com/zh-CN/docs/build-with-claude/extended-thinking",
+    "description": "官方扩展思维文档，解释如何启用 Claude 的深度推理模式，让模型在回答前先进行内部思考，适合复杂推理任务。",
+    "tags": [
+      "Claude",
+      "推理",
+      "Extended Thinking",
+      "Anthropic官方"
+    ],
+    "createdAt": "2026-04-22T16:42:33.717891"
+  },
+  {
+    "id": "2b55cbd2-82e6-499c-bdf8-aac0524b86e9",
+    "title": "构建 Claude AI Agent 的最佳实践",
+    "url": "https://www.anthropic.com/research/building-effective-agents",
+    "description": "Anthropic 工程团队总结的 AI Agent 构建经验，涵盖 ReAct、工具链、错误处理等模式，是构建生产级 Agent 的必读指南。",
+    "tags": [
+      "Claude",
+      "AI Agent",
+      "最佳实践",
+      "Anthropic研究"
+    ],
+    "createdAt": "2026-04-22T16:42:33.717895"
+  },
+  {
+    "id": "c4b86c60-12bd-41f9-a25e-3216d346ff9f",
+    "title": "提示缓存（Prompt Caching）：降低 90% API 成本",
+    "url": "https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-caching",
+    "description": "官方提示缓存文档，通过缓存重复的系统提示或文档，可将 API 延迟降低 85%、成本降低 90%，对高频调用场景极为关键。",
+    "tags": [
+      "Claude",
+      "API优化",
+      "Prompt Caching",
+      "Anthropic官方"
+    ],
+    "createdAt": "2026-04-22T16:42:33.717899"
+  },
+  {
+    "id": "7e0d29f5-a537-4f23-a82e-c57cc037f780",
+    "title": "Claude 使用政策（官方）",
+    "url": "https://www.anthropic.com/legal/aup",
+    "description": "Anthropic 官方使用政策，明确列出 Claude 的使用边界和禁止场景，是商业使用前必须了解的合规文档。",
+    "tags": [
+      "Claude",
+      "合规",
+      "使用政策",
+      "Anthropic官方"
+    ],
+    "createdAt": "2026-04-22T16:42:33.717903"
   }
 ]
