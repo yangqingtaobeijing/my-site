@@ -1,5 +1,31 @@
 [
   {
+    "id": "b1c2d3e4-f5a6-4b7c-8d9e-0f1a2b3c4d5e",
+    "title": "冲动消费拦截器",
+    "description": "买东西前的理性检查工具，帮你拦截冲动消费",
+    "url": "https://yangqingtaobeijing.github.io/impulse-buy-stopper/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/impulse-buy-stopper",
+    "tags": [
+      "Vue",
+      "TypeScript",
+      "效率工具"
+    ],
+    "createdAt": "2026-04-23T06:00:00.000Z"
+  },
+  {
+    "id": "c2d3e4f5-a6b7-4c8d-9e0f-1a2b3c4d5e6f",
+    "title": "工资计算器",
+    "description": "实时显示每秒/分/时/天收入，当天累计收入滚动，月工资隐私保护",
+    "url": "https://yangqingtaobeijing.github.io/salary-calculator/#/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/salary-calculator",
+    "tags": [
+      "Vue",
+      "TypeScript",
+      "效率工具"
+    ],
+    "createdAt": "2026-04-21T08:00:00.000Z"
+  },
+  {
     "id": "a9b1c2d3-e4f5-4a6b-7c8d-9e0f1a2b3c4d",
     "title": "Vibe Showcase",
     "description": "全球 Vibe Coding 创意项目展示站，收录 55 个真实项目，支持分类筛选和关键词搜索",
