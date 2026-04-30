@@ -4,7 +4,7 @@ import { store } from '../store'
 import { useTheme } from '../utils/theme'
 
 const config = computed(() => store.config)
-const { theme, nextThemeLabel, toggleTheme } = useTheme()
+const { nextThemeLabel, toggleTheme } = useTheme()
 </script>
 
 <template>
@@ -67,7 +67,7 @@ const { theme, nextThemeLabel, toggleTheme } = useTheme()
           :title="`切换到${nextThemeLabel}主题`"
           @click="toggleTheme"
         >
-          {{ theme === 'dark' ? '浅色' : '深色' }}
+          {{ nextThemeLabel }}
         </button>
       </nav>
     </div>

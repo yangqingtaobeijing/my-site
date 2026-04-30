@@ -5,7 +5,7 @@ import SiteFooter from '../components/SiteFooter.vue'
 import { getBookmarks, loadFromGitHub, dataLoading } from '../store'
 import { extractDomain } from '../utils/url'
 
-const bookmarks = computed(() => getBookmarks())
+const bookmarks = computed(() => getBookmarks().filter(b => !b.hidden))
 
 onMounted(() => {
   loadFromGitHub()

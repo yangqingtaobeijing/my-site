@@ -6,7 +6,7 @@ import { store, getArticles, loadFromGitHub, dataLoading } from '../store'
 import { formatDate } from '../utils/date'
 
 const config = computed(() => store.config)
-const articles = computed(() => getArticles())
+const articles = computed(() => getArticles().filter(a => !a.hidden))
 
 onMounted(() => {
   loadFromGitHub()

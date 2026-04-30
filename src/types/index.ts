@@ -8,6 +8,7 @@ export interface Article {
   externalUrl?: string // 外链 URL
   createdAt: string // ISO 8601 日期
   updatedAt: string // ISO 8601 日期
+  hidden?: boolean // 是否隐藏（前台不展示）
 }
 
 /** 收藏链接 */
@@ -17,6 +18,7 @@ export interface Bookmark {
   description: string
   url: string
   createdAt: string // ISO 8601 日期
+  hidden?: boolean // 是否隐藏（前台不展示）
 }
 
 /** 项目作品 */
@@ -28,7 +30,9 @@ export interface Project {
   sourceUrl?: string    // 源码链接（如 GitHub 仓库，可选）
   tags?: string[]       // 标签（如 ['Vue', 'TypeScript', '游戏']）
   coverUrl?: string     // 封面图 URL（可选）
+  category?: string     // 项目分类（如 '财务工具'、'学习资源'）
   createdAt: string     // ISO 8601 日期
+  hidden?: boolean      // 是否隐藏（前台不展示）
 }
 
 /** 站点配置 */

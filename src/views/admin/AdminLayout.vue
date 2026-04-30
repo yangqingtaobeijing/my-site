@@ -3,7 +3,7 @@ import { useRouter } from 'vue-router'
 import { useTheme } from '../../utils/theme'
 
 const router = useRouter()
-const { theme, nextThemeLabel, toggleTheme } = useTheme()
+const { nextThemeLabel, toggleTheme } = useTheme()
 
 /** 退出登录 */
 function logout() {
@@ -39,7 +39,7 @@ const navItems = [
             :title="`切换到${nextThemeLabel}主题`"
             @click="toggleTheme"
           >
-            {{ theme === 'dark' ? '浅色' : '深色' }}
+            {{ nextThemeLabel }}
           </button>
         </div>
       </div>

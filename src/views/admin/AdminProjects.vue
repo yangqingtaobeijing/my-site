@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { getProjects, deleteProject } from '../../store'
+import { getProjects, deleteProject, toggleProjectHidden } from '../../store'
 import { extractDomain } from '../../utils/url'
 
 const projects = computed(() => getProjects())
@@ -25,6 +25,13 @@ async function doDelete(id: string) {
   const ok = await deleteProject(id)
   syncOk.value = ok
   syncMsg.value = ok ? '✓ 已同步到 GitHub' : '⚠ GitHub 同步失败，已删除本地'
+  setTimeout(() => { syncMsg.value = '' }, 3000)
+}
+
+async function toggleHidden(id: string) {
+  const ok = await toggleProjectHidden(id)
+  syncOk.value = ok
+  syncMsg.value = ok ? '✓ 已同步到 GitHub' : '⚠ GitHub 同步失败，已更新本地'
   setTimeout(() => { syncMsg.value = '' }, 3000)
 }
 </script>
@@ -66,11 +73,12 @@ async function doDelete(id: string) {
             <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)]">名称</th>
             <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-40">域名</th>
             <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-40">标签</th>
-            <th class="text-right px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-32">操作</th>
+            <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-16">状态</th>
+            <th class="text-right px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-36">操作</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-[var(--color-border)]">
-          <tr v-for="project in projects" :key="project.id" class="hover:bg-[var(--color-bg-elevated-soft)]">
+          <tr v-for="project in projects" :key="project.id" :class="['hover:bg-[var(--color-bg-elevated-soft)]', project.hidden ? 'opacity-50' : '']">
             <td class="px-5 py-3.5 text-[var(--color-text)]">{{ project.title }}</td>
             <td class="px-5 py-3.5 text-[var(--color-text-muted)] text-xs font-[family-name:var(--font-mono)]">{{ extractDomain(project.url) }}</td>
             <td class="px-5 py-3.5">
@@ -83,6 +91,11 @@ async function doDelete(id: string) {
                   {{ tag }}
                 </span>
               </div>
+            </td>
+            <td class="px-5 py-3.5">
+              <span :class="['text-xs px-2 py-0.5 rounded font-[family-name:var(--font-mono)]', project.hidden ? 'bg-gray-500/20 text-gray-400' : 'bg-emerald-500/10 text-emerald-400']">
+                {{ project.hidden ? '隐藏' : '显示' }}
+              </span>
             </td>
             <td class="px-5 py-3.5 text-right">
               <div v-if="deletingId === project.id" class="flex items-center justify-end gap-2">
@@ -100,6 +113,12 @@ async function doDelete(id: string) {
                 </button>
               </div>
               <div v-else class="flex items-center justify-end gap-3">
+                <button
+                  class="text-[var(--color-text-muted)] hover:text-[var(--color-text)] text-xs font-[family-name:var(--font-mono)]"
+                  @click="toggleHidden(project.id)"
+                >
+                  {{ project.hidden ? '显示' : '隐藏' }}
+                </button>
                 <router-link
                   :to="{ name: 'AdminProjectEdit', params: { id: project.id } }"
                   class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] text-xs font-medium font-[family-name:var(--font-mono)]"

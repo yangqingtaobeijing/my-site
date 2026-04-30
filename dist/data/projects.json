@@ -1,48 +1,77 @@
 [
   {
-    "id": "ef729c4a-030b-40bf-855e-051b3b21fa50",
-    "title": "斗地主",
-    "description": "经典斗地主单机游戏，三级 AI 难度，完整牌型判断和策略系统",
-    "url": "https://yangqingtaobeijing.github.io/doudizhu/",
-    "sourceUrl": "https://github.com/yangqingtaobeijing/doudizhu",
-    "tags": ["Vue", "TypeScript", "游戏"],
-    "createdAt": "2026-04-15T05:49:43.290Z"
+    "id": "claude-learn",
+    "title": "Claude 产品学习平台",
+    "description": "Anthropic 旗下 7 款 AI 产品系统学习平台，30+ 课时从入门到精通，含 Claude Code、API、Desktop 等实操教程",
+    "url": "https://yangqingtaobeijing.github.io/claude-learn/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/claude-learn",
+    "tags": [
+      "Claude",
+      "AI",
+      "Vue",
+      "学习"
+    ],
+    "category": "Vibe Coding",
+    "createdAt": "2026-04-30T08:36:00.000Z"
   },
   {
-    "id": "b3a7d1e2-9f4c-4e8a-a6d5-7c2f8e0b1d34",
-    "title": "恋爱时光",
-    "description": "情侣专属 Web 应用：恋爱时间轴、星空许愿、纪念日倒计时、心愿清单、今天吃什么转盘",
-    "url": "https://yangqingtaobeijing.github.io/love-time/",
-    "sourceUrl": "https://github.com/yangqingtaobeijing/love-time",
-    "tags": ["Vue", "TypeScript", "Canvas", "浪漫"],
-    "createdAt": "2026-04-16T01:19:00.000Z"
+    "id": "world-travel",
+    "title": "世界文化遗产",
+    "description": "探索全球 52 项物质与非物质文化遗产，按地区/类型/类别筛选，21 国遗产高清展示",
+    "url": "https://yangqingtaobeijing.github.io/world-travel/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/world-travel",
+    "tags": [
+      "Vue",
+      "旅行",
+      "世界遗产",
+      "文化"
+    ],
+    "category": "Vibe Coding",
+    "createdAt": "2026-04-30T08:36:00.000Z"
   },
   {
-    "id": "c4d8e2f1-a5b6-4c7d-9e0f-3a1b2c4d5e67",
-    "title": "元原则库",
-    "description": "个人元原则管理工具，按领域分类（家庭、健康、工作、生活），支持优先级、复盘周期和调用信号提醒",
-    "url": "https://yangqingtaobeijing.github.io/metaprinciples-web/",
-    "sourceUrl": "https://github.com/yangqingtaobeijing/metaprinciples-web",
-    "tags": ["Vue", "TypeScript", "效率工具"],
-    "createdAt": "2026-04-16T01:24:00.000Z"
+    "id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "title": "MinimaLife",
+    "description": "AI 极简生活管家：上传房间照片 AI 诊断杂乱点，生成三步整理方案、个性化收纳设计、购物欲拦截器、14天断舍离挑战",
+    "url": "https://yangqingtaobeijing.github.io/minimalife/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/minimalife",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Gemini",
+      "AI"
+    ],
+    "category": "生活工具",
+    "createdAt": "2026-04-18T01:30:00.000Z"
   },
   {
-    "id": "d5e9f3a2-b6c7-4d8e-af01-4b2c3d6e7f89",
-    "title": "别生气啦",
-    "description": "情绪急救箱：呼吸引导、解压互动、生气代价可视化、反思清单、感恩日记、成就墙",
-    "url": "https://yangqingtaobeijing.github.io/dont-be-angry/",
-    "sourceUrl": "https://github.com/yangqingtaobeijing/dont-be-angry",
-    "tags": ["Vue", "TypeScript", "治愈系"],
-    "createdAt": "2026-04-16T02:02:00.000Z"
+    "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "title": "AI学堂",
+    "description": "产品经理的AI学习平台",
+    "url": "https://yangqingtaobeijing.github.io/ai-learning/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/ai-learning",
+    "tags": [
+      "大模型",
+      "AI学习",
+      "AI",
+      "AI Agent"
+    ],
+    "category": "学习资源",
+    "createdAt": "2026-04-18T01:00:00.000Z"
   },
   {
-    "id": "e6f0a4b3-c8d9-4e1f-b023-5a3c6d7e8f90",
-    "title": "空气质量看板",
-    "description": "实时空气质量数据监控看板",
-    "url": "https://yangqingtaobeijing.github.io/air-quality-dashboard/",
-    "sourceUrl": "https://github.com/yangqingtaobeijing/air-quality-dashboard",
-    "tags": ["数据看板"],
-    "createdAt": "2026-04-16T05:57:00.000Z"
+    "id": "b2c3d4e5-f6a7-4b8-9c0e-1f2a3b4c5d6e",
+    "title": "股票交易助手",
+    "description": "一个股票交易前决策检查，覆盖关注列表、买入检查、卖出检查、风险设置和交易日志",
+    "url": "https://yangqingtaobeijing.github.io/codex-margin/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/codex-margin",
+    "tags": [
+      "美股",
+      "A股",
+      "交易决策支持"
+    ],
+    "category": "财务工具",
+    "createdAt": "2026-04-18T01:00:00.000Z"
   },
   {
     "id": "f7a1b5c4-d9e0-4f2a-c134-6b4d7e8f9a01",
@@ -50,7 +79,461 @@
     "description": "实时追踪 DXY、US10Y、WTI、VIX、BTC、纳指、标普 7 大指标，深色金融终端风格",
     "url": "https://yangqingtaobeijing.github.io/market-dashboard/",
     "sourceUrl": "https://github.com/yangqingtaobeijing/market-dashboard",
-    "tags": ["Vue", "TypeScript", "金融数据"],
+    "tags": [
+      "Vue",
+      "TypeScript",
+      "金融数据"
+    ],
+    "category": "财务工具",
     "createdAt": "2026-04-16T06:03:00.000Z"
+  },
+  {
+    "id": "e6f0a4b3-c8d9-4e1f-b023-5a3c6d7e8f90",
+    "title": "空气质量看板",
+    "description": "实时空气质量数据监控看板",
+    "url": "https://yangqingtaobeijing.github.io/air-quality-dashboard/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/air-quality-dashboard",
+    "tags": [
+      "数据看板"
+    ],
+    "category": "生活工具",
+    "createdAt": "2026-04-16T05:57:00.000Z"
+  },
+  {
+    "id": "d5e9f3a2-b6c7-4d8e-af01-4b2c3d6e7f89",
+    "title": "别生气啦",
+    "description": "情绪急救箱：呼吸引导、解压互动、生气代价可视化、反思清单、感恩日记、成就墙",
+    "url": "https://yangqingtaobeijing.github.io/dont-be-angry/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/dont-be-angry",
+    "tags": [
+      "Vue",
+      "TypeScript",
+      "治愈系"
+    ],
+    "category": "生活工具",
+    "createdAt": "2026-04-16T02:02:00.000Z"
+  },
+  {
+    "id": "c4d8e2f1-a5b6-4c7d-9e0f-3a1b2c4d5e67",
+    "title": "元原则库",
+    "description": "个人元原则管理工具，按领域分类（家庭、健康、工作、生活），支持优先级、复盘周期和调用信号提醒",
+    "url": "https://yangqingtaobeijing.github.io/metaprinciples-web/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/metaprinciples-web",
+    "tags": [
+      "Vue",
+      "TypeScript",
+      "效率工具"
+    ],
+    "category": "效率工具",
+    "createdAt": "2026-04-16T01:24:00.000Z"
+  },
+  {
+    "id": "b3a7d1e2-9f4c-4e8a-a6d5-7c2f8e0b1d34",
+    "title": "恋爱时光",
+    "description": "情侣专属 Web 应用：恋爱时间轴、星空许愿、纪念日倒计时、心愿清单、今天吃什么转盘",
+    "url": "https://yangqingtaobeijing.github.io/love-time/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/love-time",
+    "tags": [
+      "Vue",
+      "TypeScript",
+      "Canvas",
+      "浪漫"
+    ],
+    "category": "生活工具",
+    "createdAt": "2026-04-16T01:19:00.000Z"
+  },
+  {
+    "id": "ef729c4a-030b-40bf-855e-051b3b21fa50",
+    "title": "斗地主",
+    "description": "经典斗地主单机游戏，三级 AI 难度，完整牌型判断和策略系统",
+    "url": "https://yangqingtaobeijing.github.io/doudizhu/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/doudizhu",
+    "tags": [
+      "Vue",
+      "TypeScript",
+      "游戏"
+    ],
+    "category": "游戏娱乐",
+    "createdAt": "2026-04-15T05:49:43.290Z"
+  },
+  {
+    "id": "5f548dd6-5f8a-485e-afdb-92fd3a370de1",
+    "title": "时钟工具站",
+    "description": "世界时钟、专注助手、美股日历",
+    "url": "https://yangqingtaobeijing.github.io/clock-tools/#/world-clock",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/clock-tools",
+    "tags": [
+      "美股日历",
+      "世界时钟",
+      "专注助手"
+    ],
+    "category": "效率工具",
+    "createdAt": "2026-04-19T04:47:18.605Z"
+  },
+  {
+    "id": "97ebd4cc-6f63-4dba-8c91-e0a8e4cd592e",
+    "title": "买菜助手",
+    "description": "选好菜，一键生成购物清单",
+    "url": "https://yangqingtaobeijing.github.io/meal-planner/#/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/meal-planner",
+    "tags": [
+      "Vue 3",
+      "TypeScript",
+      "Vite"
+    ],
+    "category": "生活工具",
+    "createdAt": "2026-04-20T03:50:25.598Z"
+  },
+  {
+    "id": "a9b1c2d3-e4f5-4a6b-7c8d-9e0f1a2b3c4d",
+    "title": "Vibe Showcase",
+    "description": "全球 Vibe Coding 创意项目展示站，收录 55 个真实项目，支持分类筛选和关键词搜索",
+    "url": "https://yangqingtaobeijing.github.io/vibe-showcase/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/vibe-showcase",
+    "tags": [
+      "Vue",
+      "TypeScript",
+      "Vibe Coding"
+    ],
+    "category": "其他",
+    "createdAt": "2026-04-22T10:00:00.000Z"
+  },
+  {
+    "id": "f1e2d3c4-b5a6-4789-abcd-ef0123456789",
+    "title": "英语学习",
+    "description": "英语学习平台：每日词汇、科技英语、旅行口语、口语练习五大模块，AI 驱动 Neural2 真人音色朗读",
+    "url": "https://yangqingtaobeijing.github.io/english-learning/#/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/english-learning",
+    "tags": [
+      "Vue",
+      "TypeScript",
+      "英语学习",
+      "TTS"
+    ],
+    "category": "学习资源",
+    "createdAt": "2026-04-27T06:00:00.000Z"
+  },
+  {
+    "id": "a2b3c4d5-e6f7-4890-bcde-f01234567890",
+    "title": "财务报表查看器",
+    "description": "财务报表分析工具",
+    "url": "https://financial-statements-viewer.vercel.app/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/financial-statements-viewer",
+    "tags": [
+      "财务分析",
+      "报表"
+    ],
+    "category": "财务工具",
+    "createdAt": "2026-04-27T06:01:00.000Z"
+  },
+  {
+    "id": "881a04d5-d938-40c7-ab6b-87df9e09d25b",
+    "title": "FeedRadar",
+    "description": "社交媒体智能订阅与邮件通知系统",
+    "url": "https://yangqingtaobeijing.github.io/feedradar/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/feedradar",
+    "tags": [
+      "YouTube",
+      "Twitter/X",
+      "DeepL API"
+    ],
+    "category": "AI 领域",
+    "createdAt": "2026-04-22T01:23:33.898Z"
+  },
+  {
+    "id": "b3c4d5e6-f7a8-4901-cdef-012345678901",
+    "title": "量化交易系统",
+    "description": "美股+A股量化信号系统，EMA/RSI/MACD多策略扫描，自选股管理，K线图，持仓记录",
+    "url": "https://quant-trading-production-a15f.up.railway.app/#/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/quant-trading",
+    "tags": [
+      "量化交易",
+      "美股",
+      "A股",
+      "Vue3",
+      "FastAPI"
+    ],
+    "category": "财务工具",
+    "createdAt": "2026-04-28T03:04:00.000Z"
+  },
+  {
+    "id": "nav-us-kol",
+    "title": "美股 KOL 导航",
+    "description": "精选国内外美股投资人与博主，含核心观点与社交媒体入口",
+    "url": "https://yangqingtaobeijing.github.io/us-stock-kol/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/us-stock-kol",
+    "tags": [
+      "美股",
+      "KOL",
+      "投资"
+    ],
+    "category": "美股研究",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-us-voices",
+    "title": "美股声音",
+    "description": "汇聚美股相关播客、评论与分析声音",
+    "url": "https://yangqingtaobeijing.github.io/us-stock-voices/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/us-stock-voices",
+    "tags": [
+      "美股",
+      "播客",
+      "分析"
+    ],
+    "category": "美股研究",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-us-sectors",
+    "title": "美股板块分析",
+    "description": "11大GICS板块110+公司，含财报数据、竞争壁垒和同板块对比",
+    "url": "https://yangqingtaobeijing.github.io/us-sectors/#/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/us-sectors",
+    "tags": [
+      "美股",
+      "板块分析",
+      "财报"
+    ],
+    "category": "美股研究",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-ai-kol",
+    "title": "AI KOL 导航",
+    "description": "精选国内外AI研究者、企业家与博主，含核心观点与代表作",
+    "url": "https://yangqingtaobeijing.github.io/ai-kol/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/ai-kol",
+    "tags": [
+      "AI",
+      "KOL",
+      "导航"
+    ],
+    "category": "AI 领域",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-ai-influencers",
+    "title": "AI Influencers",
+    "description": "AI 领域意见领袖汇总",
+    "url": "https://yangqingtaobeijing.github.io/ai-influencers/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/ai-influencers",
+    "tags": [
+      "AI",
+      "Influencers",
+      "导航"
+    ],
+    "category": "AI 领域",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-learn-coding",
+    "title": "从0到1学编程",
+    "description": "7大方向+88条真实资源+14门名校公开课，含全局搜索筛选",
+    "url": "https://yangqingtaobeijing.github.io/learn-coding/#/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/learn-coding",
+    "tags": [
+      "编程",
+      "学习",
+      "资源"
+    ],
+    "category": "学习资源",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-baby-prep",
+    "title": "备孕知识",
+    "description": "孕前/孕中/孕后三阶段内容，含排卵期&孕周计算器，权威来源标注",
+    "url": "https://yangqingtaobeijing.github.io/baby-prep/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/baby-prep",
+    "tags": [
+      "备孕",
+      "健康",
+      "计算器"
+    ],
+    "category": "学习资源",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-xiaotao-pregnancy",
+    "title": "小涛孕产学校",
+    "description": "孕产知识学习平台",
+    "url": "https://yangqingtaobeijing.github.io/xiaotao-pregnancy-school/#top",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/xiaotao-pregnancy-school",
+    "tags": [
+      "孕产",
+      "学习",
+      "健康"
+    ],
+    "category": "学习资源",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-codex-it",
+    "title": "Codex IT Learning",
+    "description": "IT 学习知识库",
+    "url": "https://yangqingtaobeijing.github.io/codex-ITlearning/#top",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/codex-ITlearning",
+    "tags": [
+      "IT",
+      "学习",
+      "知识库"
+    ],
+    "category": "学习资源",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-claude-it",
+    "title": "Claude IT Learning",
+    "description": "Claude 辅助 IT 学习平台",
+    "url": "https://yangqingtaobeijing.github.io/claude-ITlearning/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/claude-ITlearning",
+    "tags": [
+      "Claude",
+      "IT",
+      "学习"
+    ],
+    "category": "学习资源",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-options-learning",
+    "title": "美股期权学习",
+    "description": "6阶段41节课，由浅入深学习期权交易，含术语表和学习进度追踪",
+    "url": "https://yangqingtaobeijing.github.io/options-learning/#/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/options-learning",
+    "tags": [
+      "期权",
+      "美股",
+      "学习"
+    ],
+    "category": "学习资源",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-overseas-sites",
+    "title": "海外网站导航",
+    "description": "4大分类71个海外常用网站，财经/信息检索/娱乐/AI",
+    "url": "https://yangqingtaobeijing.github.io/overseas-sites/#/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/overseas-sites",
+    "tags": [
+      "导航",
+      "海外",
+      "资源"
+    ],
+    "category": "学习资源",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-a-shares",
+    "title": "A股板块分析",
+    "description": "12大申万板块90+龙头公司，含财务数据和竞争壁垒分析",
+    "url": "https://yangqingtaobeijing.github.io/a-shares/#/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/a-shares",
+    "tags": [
+      "A股",
+      "板块分析",
+      "财报"
+    ],
+    "category": "财务工具",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-codex-pm",
+    "title": "Codex PM",
+    "description": "产品经理知识库与方法论工具",
+    "url": "https://yangqingtaobeijing.github.io/codex-Pm/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/codex-Pm",
+    "tags": [
+      "产品经理",
+      "知识库",
+      "方法论"
+    ],
+    "category": "PM 工具",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-pm-portfolio",
+    "title": "PM Portfolio",
+    "description": "产品经理作品集展示",
+    "url": "https://yangqingtaobeijing.github.io/pm-portfolio/pm-portfolio-dynamic.html",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/pm-portfolio",
+    "tags": [
+      "产品经理",
+      "作品集"
+    ],
+    "category": "PM 工具",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-pm-galaxy",
+    "title": "PM Galaxy",
+    "description": "产品经理星系导航",
+    "url": "https://yangqingtaobeijing.github.io/pm-galaxy/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/pm-galaxy",
+    "tags": [
+      "产品经理",
+      "导航"
+    ],
+    "category": "PM 工具",
+    "createdAt": "2026-04-29T06:00:00.000Z"
+  },
+  {
+    "id": "nav-impulse-stopper",
+    "title": "冲动消费拦截器",
+    "description": "买前冷静期工具，AI毒舌帮你理性决策，守护钱包",
+    "url": "https://yangqingtaobeijing.github.io/impulse-buy-stopper/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/impulse-buy-stopper",
+    "tags": [
+      "AI",
+      "消费管理",
+      "生活工具"
+    ],
+    "category": "生活工具",
+    "createdAt": "2026-04-29T06:01:00.000Z"
+  },
+  {
+    "id": "nav-salary-calc",
+    "title": "工资计算器",
+    "description": "输入月工资/工作天数/工时，计算每秒/分/时/天收入，当天累计收入实时滚动，支持月工资隐私保护",
+    "url": "https://yangqingtaobeijing.github.io/salary-calculator/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/salary-calculator",
+    "tags": [
+      "Vue",
+      "TypeScript",
+      "效率工具"
+    ],
+    "category": "效率工具",
+    "createdAt": "2026-04-29T06:01:00.000Z"
+  },
+  {
+    "id": "nav-remote-work",
+    "title": "远程工作平台导航",
+    "description": "精选18个国内外远程工作平台，按地区/岗位类型/付费模式筛选，含中文简介与直达链接",
+    "url": "https://yangqingtaobeijing.github.io/remote-work-platforms/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/remote-work-platforms",
+    "tags": [
+      "远程工作",
+      "平台导航",
+      "自由职业",
+      "Vue"
+    ],
+    "category": "效率工具",
+    "createdAt": "2026-04-29T06:01:00.000Z"
+  },
+  {
+    "id": "nav-readbooks",
+    "title": "全球名著展示",
+    "description": "世界各国经典著作展示，按国家/地区与学科分类，含豆瓣与Goodreads评分",
+    "url": "https://yangqingtaobeijing.github.io/readbooks/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/readbooks",
+    "tags": [
+      "书籍",
+      "经典",
+      "阅读",
+      "Vue"
+    ],
+    "category": "学习资源",
+    "createdAt": "2026-04-30T02:42:00.000Z"
   }
 ]

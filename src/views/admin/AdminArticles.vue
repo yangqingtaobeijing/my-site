@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { getArticles, deleteArticle } from '../../store'
+import { getArticles, deleteArticle, toggleArticleHidden } from '../../store'
 import { formatDateShort } from '../../utils/date'
 
 const articles = computed(() => getArticles())
@@ -25,6 +25,13 @@ async function doDelete(id: string) {
   const ok = await deleteArticle(id)
   syncOk.value = ok
   syncMsg.value = ok ? '✓ 已同步到 GitHub' : '⚠ GitHub 同步失败，已删除本地'
+  setTimeout(() => { syncMsg.value = '' }, 3000)
+}
+
+async function toggleHidden(id: string) {
+  const ok = await toggleArticleHidden(id)
+  syncOk.value = ok
+  syncMsg.value = ok ? '✓ 已同步到 GitHub' : '⚠ GitHub 同步失败，已更新本地'
   setTimeout(() => { syncMsg.value = '' }, 3000)
 }
 </script>
@@ -65,12 +72,13 @@ async function doDelete(id: string) {
           <tr>
             <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)]">标题</th>
             <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-20">类型</th>
+            <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-16">状态</th>
             <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-28">日期</th>
-            <th class="text-right px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-32">操作</th>
+            <th class="text-right px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-36">操作</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-[var(--color-border)]">
-          <tr v-for="article in articles" :key="article.id" class="hover:bg-[var(--color-bg-elevated-soft)]">
+          <tr v-for="article in articles" :key="article.id" :class="['hover:bg-[var(--color-bg-elevated-soft)]', article.hidden ? 'opacity-50' : '']">
             <td class="px-5 py-3.5 text-[var(--color-text)]">{{ article.title }}</td>
             <td class="px-5 py-3.5">
               <span
@@ -82,6 +90,11 @@ async function doDelete(id: string) {
                 ]"
               >
                 {{ article.type === 'local' ? '本地' : '外链' }}
+              </span>
+            </td>
+            <td class="px-5 py-3.5">
+              <span :class="['text-xs px-2 py-0.5 rounded font-[family-name:var(--font-mono)]', article.hidden ? 'bg-gray-500/20 text-gray-400' : 'bg-emerald-500/10 text-emerald-400']">
+                {{ article.hidden ? '隐藏' : '显示' }}
               </span>
             </td>
             <td class="px-5 py-3.5 text-[var(--color-text-muted)] font-[family-name:var(--font-mono)]">{{ formatDateShort(article.createdAt) }}</td>
@@ -101,6 +114,12 @@ async function doDelete(id: string) {
                 </button>
               </div>
               <div v-else class="flex items-center justify-end gap-3">
+                <button
+                  class="text-[var(--color-text-muted)] hover:text-[var(--color-text)] text-xs font-[family-name:var(--font-mono)]"
+                  @click="toggleHidden(article.id)"
+                >
+                  {{ article.hidden ? '显示' : '隐藏' }}
+                </button>
                 <router-link
                   :to="{ name: 'AdminArticleEdit', params: { id: article.id } }"
                   class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] text-xs font-medium font-[family-name:var(--font-mono)]"

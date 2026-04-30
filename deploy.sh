@@ -9,21 +9,17 @@ BASE_URL="https://raw.githubusercontent.com/${OWNER}/${REPO}/gh-pages"
 echo "📦 构建项目..."
 npm run build
 
-echo "📥 合并数据文件..."
+echo "📥 拉取线上数据（线上数据优先）..."
 for file in articles.json bookmarks.json config.json projects.json; do
   local_file="dist/data/${file}"
-  local_content=$(cat "$local_file" 2>/dev/null || echo "")
   remote_content=$(curl -sf "${BASE_URL}/data/${file}" 2>/dev/null || echo "")
 
-  # 如果本地有实质内容（不是空数组/空对象），优先用本地
-  if [ -n "$local_content" ] && [ "$local_content" != "[]" ] && [ "$local_content" != "{}" ]; then
-    echo "  ✓ 使用本地 data/${file}"
-  # 否则如果线上有实质内容，用线上的
-  elif [ -n "$remote_content" ] && [ "$remote_content" != "[]" ] && [ "$remote_content" != "{}" ]; then
+  # 永远优先用线上数据，线上有内容就覆盖本地构建产物
+  if [ -n "$remote_content" ] && [ "$remote_content" != "[]" ] && [ "$remote_content" != "{}" ]; then
     echo "$remote_content" > "$local_file"
     echo "  ✓ 使用线上 data/${file}"
   else
-    echo "  - data/${file} 均为空，使用默认值"
+    echo "  - 线上 data/${file} 为空，保留本地构建产物"
   fi
 done
 

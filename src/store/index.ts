@@ -156,6 +156,15 @@ export async function updateArticle(article: Article): Promise<boolean> {
   return false
 }
 
+/** 切换文章隐藏状态，返回 GitHub 同步结果 */
+export async function toggleArticleHidden(id: string): Promise<boolean> {
+  const article = store.articles.find((a) => a.id === id)
+  if (!article) return false
+  article.hidden = !article.hidden
+  saveJSON(KEYS.articles, store.articles)
+  return syncFileToGitHub('data/articles.json', store.articles, `${article.hidden ? '隐藏' : '显示'}文章: ${article.title}`)
+}
+
 /** 删除文章，返回 GitHub 同步结果 */
 export async function deleteArticle(id: string): Promise<boolean> {
   const article = store.articles.find((a) => a.id === id)
@@ -200,6 +209,15 @@ export async function updateBookmark(bookmark: Bookmark): Promise<boolean> {
   return false
 }
 
+/** 切换收藏隐藏状态，返回 GitHub 同步结果 */
+export async function toggleBookmarkHidden(id: string): Promise<boolean> {
+  const bookmark = store.bookmarks.find((b) => b.id === id)
+  if (!bookmark) return false
+  bookmark.hidden = !bookmark.hidden
+  saveJSON(KEYS.bookmarks, store.bookmarks)
+  return syncFileToGitHub('data/bookmarks.json', store.bookmarks, `${bookmark.hidden ? '隐藏' : '显示'}收藏: ${bookmark.title}`)
+}
+
 /** 删除收藏，返回 GitHub 同步结果 */
 export async function deleteBookmark(id: string): Promise<boolean> {
   const bookmark = store.bookmarks.find((b) => b.id === id)
@@ -242,6 +260,15 @@ export async function updateProject(project: Project): Promise<boolean> {
     return syncFileToGitHub('data/projects.json', store.projects, `更新项目: ${project.title}`)
   }
   return false
+}
+
+/** 切换项目隐藏状态，返回 GitHub 同步结果 */
+export async function toggleProjectHidden(id: string): Promise<boolean> {
+  const project = store.projects.find((p) => p.id === id)
+  if (!project) return false
+  project.hidden = !project.hidden
+  saveJSON(KEYS.projects, store.projects)
+  return syncFileToGitHub('data/projects.json', store.projects, `${project.hidden ? '隐藏' : '显示'}项目: ${project.title}`)
 }
 
 /** 删除项目，返回 GitHub 同步结果 */

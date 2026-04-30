@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { getBookmarks, deleteBookmark } from '../../store'
+import { getBookmarks, deleteBookmark, toggleBookmarkHidden } from '../../store'
 import { extractDomain } from '../../utils/url'
 
 const bookmarks = computed(() => getBookmarks())
@@ -25,6 +25,13 @@ async function doDelete(id: string) {
   const ok = await deleteBookmark(id)
   syncOk.value = ok
   syncMsg.value = ok ? '✓ 已同步到 GitHub' : '⚠ GitHub 同步失败，已删除本地'
+  setTimeout(() => { syncMsg.value = '' }, 3000)
+}
+
+async function toggleHidden(id: string) {
+  const ok = await toggleBookmarkHidden(id)
+  syncOk.value = ok
+  syncMsg.value = ok ? '✓ 已同步到 GitHub' : '⚠ GitHub 同步失败，已更新本地'
   setTimeout(() => { syncMsg.value = '' }, 3000)
 }
 </script>
@@ -65,13 +72,19 @@ async function doDelete(id: string) {
           <tr>
             <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)]">标题</th>
             <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-40">域名</th>
-            <th class="text-right px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-32">操作</th>
+            <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-16">状态</th>
+            <th class="text-right px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-36">操作</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-[var(--color-border)]">
-          <tr v-for="bookmark in bookmarks" :key="bookmark.id" class="hover:bg-[var(--color-bg-elevated-soft)]">
+          <tr v-for="bookmark in bookmarks" :key="bookmark.id" :class="['hover:bg-[var(--color-bg-elevated-soft)]', bookmark.hidden ? 'opacity-50' : '']">
             <td class="px-5 py-3.5 text-[var(--color-text)]">{{ bookmark.title }}</td>
             <td class="px-5 py-3.5 text-[var(--color-text-muted)] text-xs font-[family-name:var(--font-mono)]">{{ extractDomain(bookmark.url) }}</td>
+            <td class="px-5 py-3.5">
+              <span :class="['text-xs px-2 py-0.5 rounded font-[family-name:var(--font-mono)]', bookmark.hidden ? 'bg-gray-500/20 text-gray-400' : 'bg-emerald-500/10 text-emerald-400']">
+                {{ bookmark.hidden ? '隐藏' : '显示' }}
+              </span>
+            </td>
             <td class="px-5 py-3.5 text-right">
               <div v-if="deletingId === bookmark.id" class="flex items-center justify-end gap-2">
                 <button
@@ -88,6 +101,12 @@ async function doDelete(id: string) {
                 </button>
               </div>
               <div v-else class="flex items-center justify-end gap-3">
+                <button
+                  class="text-[var(--color-text-muted)] hover:text-[var(--color-text)] text-xs font-[family-name:var(--font-mono)]"
+                  @click="toggleHidden(bookmark.id)"
+                >
+                  {{ bookmark.hidden ? '显示' : '隐藏' }}
+                </button>
                 <router-link
                   :to="{ name: 'AdminBookmarkEdit', params: { id: bookmark.id } }"
                   class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] text-xs font-medium font-[family-name:var(--font-mono)]"

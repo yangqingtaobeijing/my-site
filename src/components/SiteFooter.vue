@@ -8,6 +8,7 @@
       <p>
         © {{ new Date().getFullYear() }} · 用 <span class="text-[var(--color-accent)]">❤</span> 构建
       </p>
+
     </div>
   </footer>
 </template>
