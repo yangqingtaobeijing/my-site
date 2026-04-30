@@ -18,12 +18,13 @@ const categoryColors: Record<string, { bg: string; text: string; border: string;
   '生活工具': { bg: 'bg-cyan-50', text: 'text-cyan-700', border: 'border-cyan-200', dot: 'bg-cyan-500' },
   '效率工具': { bg: 'bg-slate-50', text: 'text-slate-700', border: 'border-slate-200', dot: 'bg-slate-500' },
   '游戏娱乐': { bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-200', dot: 'bg-orange-500' },
+  'Vibe Coding': { bg: 'bg-indigo-50', text: 'text-indigo-700', border: 'border-indigo-200', dot: 'bg-indigo-500' },
   '其他': { bg: 'bg-gray-50', text: 'text-gray-600', border: 'border-gray-200', dot: 'bg-gray-400' },
 }
 const defaultColor = { bg: 'bg-gray-50', text: 'text-gray-600', border: 'border-gray-200', dot: 'bg-gray-400' }
 
 // 分类排序（美股研究倒数第二）
-const categoryOrder = ['财务工具', 'AI 领域', 'PM 工具', '学习资源', '生活工具', '效率工具', '游戏娱乐', '美股研究', '其他']
+const categoryOrder = ['Vibe Coding', '财务工具', 'AI 领域', 'PM 工具', '学习资源', '生活工具', '效率工具', '游戏娱乐', '美股研究', '其他']
 
 // 按分类分组
 const groupedProjects = computed(() => {
