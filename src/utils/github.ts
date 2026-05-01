@@ -92,6 +92,107 @@ export async function testConnection(config: GitHubConfig): Promise<boolean> {
   return res.ok
 }
 
+// ==================== Traffic API ====================
+
+/** GitHub Traffic Views */
+export interface TrafficViews {
+  count: number
+  uniques: number
+  views: { timestamp: string; count: number; uniques: number }[]
+}
+
+/** GitHub Traffic Clones */
+export interface TrafficClones {
+  count: number
+  uniques: number
+  clones: { timestamp: string; count: number; uniques: number }[]
+}
+
+/** GitHub Popular Path */
+export interface TrafficPath {
+  path: string
+  title: string
+  count: number
+  uniques: number
+}
+
+/** GitHub Popular Referrer */
+export interface TrafficReferrer {
+  referrer: string
+  count: number
+  uniques: number
+}
+
+async function fetchTraffic<T>(config: GitHubConfig, endpoint: string): Promise<T> {
+  const url = `https://api.github.com/repos/${config.owner}/${config.repo}/traffic/${endpoint}`
+  const res = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${config.token}`,
+      Accept: 'application/vnd.github.v3+json',
+    },
+  })
+  if (!res.ok) {
+    throw new Error(`Traffic API ${endpoint} 失败: ${res.status}`)
+  }
+  return res.json() as Promise<T>
+}
+
+export async function fetchTrafficViews(config: GitHubConfig): Promise<TrafficViews> {
+  return fetchTraffic<TrafficViews>(config, 'views')
+}
+
+export async function fetchTrafficClones(config: GitHubConfig): Promise<TrafficClones> {
+  return fetchTraffic<TrafficClones>(config, 'clones')
+}
+
+export async function fetchPopularPaths(config: GitHubConfig): Promise<TrafficPath[]> {
+  return fetchTraffic<TrafficPath[]>(config, 'popular/paths')
+}
+
+export async function fetchPopularReferrers(config: GitHubConfig): Promise<TrafficReferrer[]> {
+  return fetchTraffic<TrafficReferrer[]>(config, 'popular/referrers')
+}
+
+/** 历史分析数据快照 */
+export interface AnalyticsSnapshot {
+  date: string
+  views: number
+  uniques: number
+  clones: number
+}
+
+export interface AnalyticsData {
+  snapshots: AnalyticsSnapshot[]
+}
+
+/** 从 GitHub Pages 读取历史分析数据 */
+export async function fetchAnalyticsHistory(): Promise<AnalyticsData> {
+  try {
+    return await fetchPublicData<AnalyticsData>('analytics.json')
+  } catch {
+    return { snapshots: [] }
+  }
+}
+
+/** 保存历史快照到 GitHub */
+export async function saveAnalyticsSnapshot(
+  config: GitHubConfig,
+  snapshot: AnalyticsSnapshot,
+  existing: AnalyticsData,
+): Promise<boolean> {
+  const filtered = existing.snapshots.filter((s) => s.date !== snapshot.date)
+  const data: AnalyticsData = {
+    snapshots: [...filtered, snapshot].sort((a, b) => a.date.localeCompare(b.date)),
+  }
+  try {
+    await writeFile(config, 'data/analytics.json', JSON.stringify(data, null, 2), `保存分析快照 ${snapshot.date}`)
+    return true
+  } catch (e) {
+    console.error('[Analytics] 保存快照失败:', e)
+    return false
+  }
+}
+
 // ==================== localStorage 中的 GitHub 配置管理 ====================
 
 const GH_KEYS = {

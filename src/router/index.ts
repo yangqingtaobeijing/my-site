@@ -17,6 +17,7 @@ import AdminBookmarkEdit from '../views/admin/AdminBookmarkEdit.vue'
 import AdminProjects from '../views/admin/AdminProjects.vue'
 import AdminProjectEdit from '../views/admin/AdminProjectEdit.vue'
 import AdminSettings from '../views/admin/AdminSettings.vue'
+import AdminAnalytics from '../views/admin/AdminAnalytics.vue'
 
 const routes: RouteRecordRaw[] = [
   // 前台
@@ -42,6 +43,7 @@ const routes: RouteRecordRaw[] = [
       { path: 'projects', name: 'AdminProjects', component: AdminProjects },
       { path: 'projects/new', name: 'AdminProjectNew', component: AdminProjectEdit },
       { path: 'projects/edit/:id', name: 'AdminProjectEdit', component: AdminProjectEdit },
+      { path: 'analytics', name: 'AdminAnalytics', component: AdminAnalytics },
       { path: 'settings', name: 'AdminSettings', component: AdminSettings },
     ],
   },
@@ -67,6 +69,7 @@ router.beforeEach((to) => {
     'AdminProjects',
     'AdminProjectNew',
     'AdminProjectEdit',
+    'AdminAnalytics',
     'AdminSettings',
   ]
   if (adminRoutes.includes(to.name as string)) {

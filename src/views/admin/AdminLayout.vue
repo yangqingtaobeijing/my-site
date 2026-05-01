@@ -15,6 +15,7 @@ function logout() {
 const navItems = [
   { name: 'AdminArticles', label: '文章管理', icon: '📝' },
   { name: 'AdminBookmarks', label: '收藏管理', icon: '🔗' },
+  { name: 'AdminAnalytics', label: '数据概览', icon: '📊' },
   { name: 'AdminProjects', label: '项目管理', icon: '🚀' },
   { name: 'AdminSettings', label: '站点设置', icon: '⚙️' },
 ]
