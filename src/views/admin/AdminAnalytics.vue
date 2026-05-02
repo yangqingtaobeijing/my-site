@@ -8,6 +8,7 @@ import {
   fetchPopularReferrers,
   fetchAnalyticsHistory,
   saveAnalyticsSnapshot,
+  fetchPublicData,
   type TrafficViews,
   type TrafficClones,
   type TrafficPath,
@@ -15,6 +16,19 @@ import {
   type AnalyticsData,
   type AnalyticsSnapshot,
 } from '../../utils/github'
+
+interface Project {
+  title: string
+  url: string
+}
+
+interface ProjectStat {
+  title: string
+  repo: string
+  views: number
+  uniques: number
+  status: 'ok' | 'error'
+}
 
 // ---- State ----
 const loading = ref(true)
@@ -29,6 +43,11 @@ const history = ref<AnalyticsData>({ snapshots: [] })
 
 const saving = ref(false)
 const saveResult = ref<'success' | 'fail' | ''>('')
+
+// ---- Project Stats ----
+const projectStats = ref<ProjectStat[]>([])
+const projectStatsLoading = ref(false)
+const projectStatsError = ref('')
 
 // ---- Derived ----
 const todayViews = computed(() => views.value?.count ?? 0)
@@ -131,7 +150,44 @@ function barH(value: number): number {
   return Math.max((value / chartMax.value) * MAX_BAR_H, 2)
 }
 
-onMounted(loadData)
+function repoFromUrl(url: string): string | null {
+  const m = url.match(/yangqingtaobeijing\.github\.io\/([^/#?]+)/)
+  return m ? m[1] : null
+}
+
+async function loadProjectStats() {
+  const config = getGitHubConfig()
+  if (!config) return
+  projectStatsLoading.value = true
+  projectStatsError.value = ''
+  try {
+    const projects = await fetchPublicData<Project[]>('projects.json')
+    const githubProjects = projects.filter((p) => repoFromUrl(p.url || ''))
+    const results = await Promise.allSettled(
+      githubProjects.map(async (p) => {
+        const repo = repoFromUrl(p.url)!
+        const res = await fetch(`https://api.github.com/repos/${config.owner}/${repo}/traffic/views`, {
+          headers: { Authorization: `Bearer ${config.token}`, Accept: 'application/vnd.github.v3+json' },
+        })
+        if (!res.ok) throw new Error(`${res.status}`)
+        const data = await res.json() as { count: number; uniques: number }
+        return { title: p.title, repo, views: data.count, uniques: data.uniques, status: 'ok' as const }
+      })
+    )
+    projectStats.value = results
+      .map((r, i) => r.status === 'fulfilled' ? r.value : { title: githubProjects[i].title, repo: repoFromUrl(githubProjects[i].url)!, views: 0, uniques: 0, status: 'error' as const })
+      .sort((a, b) => b.views - a.views)
+  } catch (e) {
+    projectStatsError.value = e instanceof Error ? e.message : '加载失败'
+  } finally {
+    projectStatsLoading.value = false
+  }
+}
+
+onMounted(() => {
+  loadData()
+  loadProjectStats()
+})
 </script>
 
 <template>
@@ -307,6 +363,43 @@ onMounted(loadData)
             暂无数据
           </div>
         </div>
+      </div>
+
+      <!-- 项目浏览排行 -->
+      <div class="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl p-5 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-sm font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)]">项目浏览排行</h3>
+          <button class="text-xs text-[var(--color-text-subtle)] hover:text-[var(--color-accent)] font-[family-name:var(--font-mono)]" @click="loadProjectStats">↻ 刷新</button>
+        </div>
+        <div v-if="projectStatsLoading" class="space-y-3">
+          <div v-for="i in 6" :key="i" class="animate-pulse">
+            <div class="flex justify-between mb-1">
+              <div class="h-3 w-32 bg-[var(--color-bg-card-soft)] rounded" />
+              <div class="h-3 w-16 bg-[var(--color-bg-card-soft)] rounded" />
+            </div>
+            <div class="h-1.5 bg-[var(--color-bg-card-soft)] rounded-full" />
+          </div>
+        </div>
+        <div v-else-if="projectStatsError" class="text-sm text-red-400 text-center py-4 font-[family-name:var(--font-mono)]">{{ projectStatsError }}</div>
+        <div v-else-if="projectStats.length > 0" class="space-y-3">
+          <div v-for="(p, i) in projectStats" :key="p.repo" class="group">
+            <div class="flex items-center justify-between mb-1">
+              <div class="flex items-center gap-2 min-w-0">
+                <span class="text-xs text-[var(--color-text-muted)] w-5 shrink-0 font-[family-name:var(--font-mono)]">#{{ i + 1 }}</span>
+                <span class="text-sm text-[var(--color-text)] truncate font-[family-name:var(--font-mono)]" :title="p.title">{{ p.title }}</span>
+                <span v-if="p.status === 'error'" class="text-xs text-red-400 font-[family-name:var(--font-mono)]">无权限</span>
+              </div>
+              <div class="flex items-center gap-3 shrink-0 ml-2">
+                <span class="text-xs font-medium text-[var(--color-text-bright)] font-[family-name:var(--font-mono)]">{{ p.views.toLocaleString() }} 次</span>
+                <span class="text-xs text-[var(--color-text-subtle)] font-[family-name:var(--font-mono)]">{{ p.uniques }} 人</span>
+              </div>
+            </div>
+            <div class="h-1 bg-[var(--color-bg-card-soft)] rounded-full overflow-hidden">
+              <div class="h-full bg-[var(--color-accent)] rounded-full opacity-70 transition-all" :style="{ width: projectStats[0].views > 0 ? (p.views / projectStats[0].views * 100) + '%' : '0%' }" />
+            </div>
+          </div>
+        </div>
+        <div v-else class="text-sm text-[var(--color-text-muted)] text-center py-4 font-[family-name:var(--font-mono)]">暂无数据</div>
       </div>
 
       <!-- 历史快照 -->
