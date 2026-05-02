@@ -123,6 +123,13 @@ onUnmounted(() => {
 
       <!-- 右侧项目列表 -->
       <section class="flex-1 min-w-0">
+        <!-- 顶部总数统计 -->
+        <div v-if="!dataLoading && projects.length > 0" class="mb-6 flex items-center gap-2">
+          <span class="text-sm text-[var(--color-text-muted)]">共</span>
+          <span class="text-sm font-bold text-[var(--color-accent)] font-[family-name:var(--font-mono)]">{{ projects.length }}</span>
+          <span class="text-sm text-[var(--color-text-muted)]">个项目</span>
+        </div>
+
         <!-- 加载状态 -->
         <div v-if="dataLoading" class="text-center py-20">
           <p class="text-[var(--color-text-subtle)] text-sm font-[family-name:var(--font-mono)] animate-pulse">&gt;_ 加载中...</p>
