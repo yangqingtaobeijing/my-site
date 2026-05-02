@@ -24,7 +24,7 @@ const categoryColors: Record<string, { bg: string; text: string; border: string;
 const defaultColor = { bg: 'bg-gray-50', text: 'text-gray-600', border: 'border-gray-200', dot: 'bg-gray-400' }
 
 // 分类排序（美股研究倒数第二）
-const categoryOrder = ['Vibe Coding', '财务工具', 'AI 领域', 'PM 工具', '学习资源', '生活工具', '效率工具', '游戏娱乐', '美股研究', '其他']
+const categoryOrder = ['Vibe Coding', '财务工具', 'AI 领域', 'PM 工具', '学习资源', '生活工具', '效率工具', '游戏娱乐', '美股研究', '自由职业', '其他']
 
 // 按分类分组
 const groupedProjects = computed(() => {

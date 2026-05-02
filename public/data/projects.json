@@ -1,5 +1,34 @@
 [
   {
+    "id": "fire-cases",
+    "title": "FIRE 提前退休案例",
+    "description": "国内外年轻人提前退休真实案例展示，涵盖投资理财、自媒体、自由职业等7种实现路径，12个真实案例含详细故事和产品链接",
+    "url": "https://yangqingtaobeijing.github.io/fire-cases/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/fire-cases",
+    "tags": [
+      "FIRE",
+      "提前退休",
+      "自由职业",
+      "Vue"
+    ],
+    "category": "自由职业",
+    "createdAt": "2026-05-02T04:00:00.000Z"
+  },
+  {
+    "id": "freework",
+    "title": "自由职业者导航",
+    "description": "自由职业者工具与资源导航网站",
+    "url": "https://yangqingtaobeijing.github.io/freework/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/freework",
+    "tags": [
+      "自由职业",
+      "导航",
+      "Vue"
+    ],
+    "category": "自由职业",
+    "createdAt": "2026-05-02T04:00:00.000Z"
+  },
+  {
     "id": "claude-learn",
     "title": "Claude 产品学习平台",
     "description": "Anthropic 旗下 7 款 AI 产品系统学习平台，30+ 课时从入门到精通，含 Claude Code、API、Desktop 等实操教程",
