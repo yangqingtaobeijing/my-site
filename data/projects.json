@@ -3,7 +3,7 @@
     "id": "ai-products-site",
     "title": "AI 产品案例汇总",
     "description": "14+ 个人开发者用 AI 编程工具打造的 Web 产品，涵盖 AI 图像、客服机器人、效率工具等 5 大分类，含 Marc Lou 等标杆案例的收入拆解",
-    "url": "https://yangqingtaobeijing.github.io/ai-products-site/",
+    "url": "https://yangqingtaobeijing.github.io/ai-products-site/#products",
     "sourceUrl": "https://github.com/yangqingtaobeijing/ai-products-site",
     "tags": [
       "AI产品",
@@ -580,5 +580,19 @@
     ],
     "category": "学习资源",
     "createdAt": "2026-04-30T02:42:00.000Z"
+  },
+  {
+    "id": "33fd38a8-36c9-4bca-872d-64479a34da49",
+    "title": "冥想之旅",
+    "description": "探索内心的宁静",
+    "url": "https://yangqingtaobeijing.github.io/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/meditation",
+    "category": "生活工具",
+    "tags": [
+      "react",
+      "vite",
+      "Meditation"
+    ],
+    "createdAt": "2026-05-03T03:09:31.760Z"
   }
 ]
