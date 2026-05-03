@@ -71,6 +71,7 @@ async function toggleHidden(id: string) {
         <thead class="bg-[var(--color-bg-elevated)] border-b border-[var(--color-border)]">
           <tr>
             <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)]">名称</th>
+            <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-20">分类</th>
             <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-40">域名</th>
             <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-40">标签</th>
             <th class="text-left px-5 py-3 font-medium text-[var(--color-text-secondary)] font-[family-name:var(--font-mono)] w-16">状态</th>
@@ -80,6 +81,13 @@ async function toggleHidden(id: string) {
         <tbody class="divide-y divide-[var(--color-border)]">
           <tr v-for="project in projects" :key="project.id" :class="['hover:bg-[var(--color-bg-elevated-soft)]', project.hidden ? 'opacity-50' : '']">
             <td class="px-5 py-3.5 text-[var(--color-text)]">{{ project.title }}</td>
+            <td class="px-5 py-3.5">
+              <span
+                v-if="project.category"
+                class="text-xs px-2 py-0.5 rounded bg-[var(--color-accent-dim)] text-[var(--color-accent)] font-[family-name:var(--font-mono)]"
+              >{{ project.category }}</span>
+              <span v-else class="text-xs text-[var(--color-text-faint)]">未分类</span>
+            </td>
             <td class="px-5 py-3.5 text-[var(--color-text-muted)] text-xs font-[family-name:var(--font-mono)]">{{ extractDomain(project.url) }}</td>
             <td class="px-5 py-3.5">
               <div class="flex flex-wrap gap-1">

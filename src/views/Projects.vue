@@ -3,28 +3,14 @@ import { computed, onMounted, onUnmounted, ref, nextTick } from 'vue'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
 import { getProjects, loadFromGitHub, dataLoading } from '../store'
+import { getCategoryColor, getCategoryList, defaultCategoryColor } from '../config/categories'
 
 const openProject = (url: string) => window.open(url, '_blank')
 
 const projects = computed(() => getProjects().filter(p => !p.hidden))
 
-// 分类颜色映射
-const categoryColors: Record<string, { bg: string; text: string; border: string; dot: string }> = {
-  '美股研究': { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200', dot: 'bg-emerald-500' },
-  'AI 领域': { bg: 'bg-violet-50', text: 'text-violet-700', border: 'border-violet-200', dot: 'bg-violet-500' },
-  '学习资源': { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200', dot: 'bg-blue-500' },
-  '财务工具': { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200', dot: 'bg-amber-500' },
-  'PM 工具': { bg: 'bg-rose-50', text: 'text-rose-700', border: 'border-rose-200', dot: 'bg-rose-500' },
-  '生活工具': { bg: 'bg-cyan-50', text: 'text-cyan-700', border: 'border-cyan-200', dot: 'bg-cyan-500' },
-  '效率工具': { bg: 'bg-slate-50', text: 'text-slate-700', border: 'border-slate-200', dot: 'bg-slate-500' },
-  '游戏娱乐': { bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-200', dot: 'bg-orange-500' },
-  'Vibe Coding': { bg: 'bg-indigo-50', text: 'text-indigo-700', border: 'border-indigo-200', dot: 'bg-indigo-500' },
-  '其他': { bg: 'bg-gray-50', text: 'text-gray-600', border: 'border-gray-200', dot: 'bg-gray-400' },
-}
-const defaultColor = { bg: 'bg-gray-50', text: 'text-gray-600', border: 'border-gray-200', dot: 'bg-gray-400' }
-
-// 分类排序（美股研究倒数第二）
-const categoryOrder = ['Vibe Coding', '财务工具', 'AI 领域', 'PM 工具', '学习资源', '生活工具', '效率工具', '游戏娱乐', '美股研究', '自由职业', '其他']
+// 分类排序
+const categoryOrder = getCategoryList()
 
 // 按分类分组
 const groupedProjects = computed(() => {
@@ -37,7 +23,7 @@ const groupedProjects = computed(() => {
   return categoryOrder.filter(o => groups[o]).map(o => ({
     name: o,
     projects: groups[o],
-    colors: categoryColors[o] || defaultColor,
+    colors: getCategoryColor(o),
   }))
 })
 

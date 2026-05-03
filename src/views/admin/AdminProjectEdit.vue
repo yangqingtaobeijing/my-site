@@ -3,6 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { getProjectById, addProject, updateProject } from '../../store'
 import { generateId } from '../../utils/id'
+import { getCategoryList, addCategory } from '../../config/categories'
 import type { Project } from '../../types'
 
 const route = useRoute()
@@ -17,8 +18,29 @@ const description = ref('')
 const url = ref('')
 const sourceUrl = ref('')
 const coverUrl = ref('')
+const category = ref('')
 const tagInput = ref('')
 const tags = ref<string[]>([])
+
+/** 分类列表 */
+const categoryList = ref<string[]>(getCategoryList())
+
+/** 新增分类 */
+const showNewCategory = ref(false)
+const newCategoryName = ref('')
+
+function handleAddCategory() {
+  const name = newCategoryName.value.trim()
+  if (!name) return
+  if (categoryList.value.includes(name)) {
+    category.value = name
+  } else {
+    categoryList.value = addCategory(name)
+    category.value = name
+  }
+  newCategoryName.value = ''
+  showNewCategory.value = false
+}
 
 /** 保存状态 */
 const saving = ref(false)
@@ -34,6 +56,7 @@ onMounted(() => {
       url.value = project.url
       sourceUrl.value = project.sourceUrl || ''
       coverUrl.value = project.coverUrl || ''
+      category.value = project.category || ''
       tags.value = project.tags ? [...project.tags] : []
     }
   }
@@ -75,6 +98,7 @@ async function handleSave() {
     url: url.value.trim(),
     sourceUrl: sourceUrl.value.trim() || undefined,
     coverUrl: coverUrl.value.trim() || undefined,
+    category: category.value.trim() || undefined,
     tags: tags.value.length > 0 ? [...tags.value] : undefined,
     createdAt: isEdit.value
       ? (getProjectById(route.params.id as string)?.createdAt || now)
@@ -144,6 +168,57 @@ async function handleSave() {
           placeholder="https://example.github.io/project"
           class="admin-input"
         />
+      </div>
+
+      <!-- 选择分类 -->
+      <div>
+        <label class="block text-sm text-[var(--color-text-secondary)] mb-1.5 font-[family-name:var(--font-mono)]">选择分类</label>
+        <div class="flex gap-2">
+          <select
+            v-model="category"
+            class="admin-input flex-1"
+          >
+            <option value="">-- 请选择分类 --</option>
+            <option
+              v-for="cat in categoryList"
+              :key="cat"
+              :value="cat"
+            >{{ cat }}</option>
+          </select>
+          <button
+            v-if="!showNewCategory"
+            type="button"
+            class="btn-secondary text-sm shrink-0"
+            @click="showNewCategory = true"
+          >
+            + 新建分类
+          </button>
+        </div>
+        <!-- 新建分类输入 -->
+        <div v-if="showNewCategory" class="flex gap-2 mt-2">
+          <input
+            v-model="newCategoryName"
+            type="text"
+            placeholder="输入新分类名称"
+            class="admin-input flex-1"
+            @keydown.enter.prevent="handleAddCategory"
+          />
+          <button
+            type="button"
+            class="btn-primary text-sm shrink-0"
+            @click="handleAddCategory"
+          >
+            确定
+          </button>
+          <button
+            type="button"
+            class="btn-secondary text-sm shrink-0"
+            @click="showNewCategory = false; newCategoryName = ''"
+          >
+            取消
+          </button>
+        </div>
+        <p class="text-xs text-[var(--color-text-faint)] mt-1 font-[family-name:var(--font-mono)]">选择前台展示分类，新建的分类会自动同步到前台</p>
       </div>
 
       <!-- 源码链接 -->
