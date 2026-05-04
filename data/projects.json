@@ -594,5 +594,19 @@
       "Meditation"
     ],
     "createdAt": "2026-05-03T03:09:31.760Z"
+  },
+  {
+    "id": "1ef025a6-5220-4936-859b-0d89ceeed745",
+    "title": "环球旅居指南",
+    "description": "环球从3天短途到3个月深度旅居",
+    "url": "https://yangqingtaobeijing.github.io/TravelWorld/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/TravelWorld",
+    "category": "自由职业",
+    "tags": [
+      "vercel",
+      "旅居",
+      "fire"
+    ],
+    "createdAt": "2026-05-04T10:03:47.879Z"
   }
 ]
