@@ -614,7 +614,13 @@
     "title": "AI 产业图景",
     "description": "完整的 AI 产业栈分类",
     "url": "https://yangqingtaobeijing.github.io/ai-industry-landscape/#overview",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/ai-industry-landscape",
     "category": "AI 领域",
+    "tags": [
+      "Ai",
+      "基建",
+      "2026 美股"
+    ],
     "createdAt": "2026-05-15T08:46:52.487Z"
   },
   {
@@ -624,6 +630,10 @@
     "url": "https://yangqingtaobeijing.github.io/ai-industry-map/",
     "sourceUrl": "https://github.com/yangqingtaobeijing/ai-industry-map",
     "category": "AI 领域",
+    "tags": [
+      "AI",
+      "美股"
+    ],
     "createdAt": "2026-05-15T08:47:44.420Z"
   }
 ]
