@@ -608,5 +608,21 @@
       "fire"
     ],
     "createdAt": "2026-05-04T10:03:47.879Z"
+  },
+  {
+    "id": "b789a416-a574-4055-afd0-508ffc15718d",
+    "title": "AI 产业图景",
+    "description": "完整的 AI 产业栈分类",
+    "url": "https://yangqingtaobeijing.github.io/ai-industry-landscape/#overview",
+    "category": "AI 领域",
+    "createdAt": "2026-05-15T08:46:52.487Z"
+  },
+  {
+    "id": "940b00b9-29f4-4d1d-83a2-e987b2fc94b6",
+    "title": "产业全景图谱 2026",
+    "description": "",
+    "url": "https://yangqingtaobeijing.github.io/ai-industry-map/",
+    "category": "AI 领域",
+    "createdAt": "2026-05-15T08:47:44.420Z"
   }
 ]
