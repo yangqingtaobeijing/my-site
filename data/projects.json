@@ -620,8 +620,9 @@
   {
     "id": "940b00b9-29f4-4d1d-83a2-e987b2fc94b6",
     "title": "产业全景图谱 2026",
-    "description": "",
+    "description": "从能源底层到应用顶层，系统梳理全球AI产业链8大层级、100+核心企业的业务布局、股票代码与竞争壁垒",
     "url": "https://yangqingtaobeijing.github.io/ai-industry-map/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/ai-industry-map",
     "category": "AI 领域",
     "createdAt": "2026-05-15T08:47:44.420Z"
   }
