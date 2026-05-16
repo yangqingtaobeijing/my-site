@@ -635,5 +635,18 @@
       "美股"
     ],
     "createdAt": "2026-05-15T08:47:44.420Z"
+  },
+  {
+    "id": "8e813c2c-83e9-4225-8584-96811510d485",
+    "title": "坦克大战-极简版",
+    "description": "防弹版坦克大战",
+    "url": "https://yangqingtaobeijing.github.io/tank-game/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/tank-game",
+    "category": "游戏娱乐",
+    "tags": [
+      "AI 游戏",
+      "坦克大战"
+    ],
+    "createdAt": "2026-05-16T11:54:15.946Z"
   }
 ]
