@@ -648,5 +648,18 @@
       "坦克大战"
     ],
     "createdAt": "2026-05-16T11:54:15.946Z"
+  },
+  {
+    "id": "3ac6e02e-a117-49bd-bf0d-f666684474bf",
+    "title": "点名助手（离线版）",
+    "description": "一个手机端本地离线点名工具。支持从 Excel 或在线表格粘贴导入名单，在手机上标记已到/未到，筛出未到人员并直接调用拨号",
+    "url": "https://yangqingtaobeijing.github.io/coach-rollcall/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/coach-rollcall",
+    "category": "效率工具",
+    "tags": [
+      "点名助手",
+      "离线"
+    ],
+    "createdAt": "2026-05-16T11:57:35.493Z"
   }
 ]
