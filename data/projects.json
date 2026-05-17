@@ -661,5 +661,18 @@
       "离线"
     ],
     "createdAt": "2026-05-16T11:57:35.493Z"
+  },
+  {
+    "id": "d27f7d06-ef45-49bb-af31-37241182ebc2",
+    "title": "CoreFit",
+    "description": "科学练就六块腹肌",
+    "url": "https://yangqingtaobeijing.github.io/abs-training-app/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/abs-training-app",
+    "category": "生活工具",
+    "tags": [
+      "Vue 3 + Vite",
+      "AI健身"
+    ],
+    "createdAt": "2026-05-17T08:33:42.274Z"
   }
 ]
