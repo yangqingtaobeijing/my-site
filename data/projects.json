@@ -695,5 +695,17 @@
     "sourceUrl": "https://github.com/yangqingtaobeijing/foxue",
     "category": "其他",
     "createdAt": "2026-05-17T09:19:17.302Z"
+  },
+  {
+    "id": "4a051627-67d2-43b6-bfdf-c19f7a236a8d",
+    "title": "佛学之路",
+    "description": "权威佛学著作、优质视频课程与在线学习平台推荐",
+    "url": "https://yangqingtaobeijing.github.io/foxue-desktop/resources",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/foxue-desktop",
+    "category": "其他",
+    "tags": [
+      "佛学之路"
+    ],
+    "createdAt": "2026-05-17T09:32:31.320Z"
   }
 ]
