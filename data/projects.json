@@ -686,5 +686,14 @@
       "buddhism-learning"
     ],
     "createdAt": "2026-05-17T09:16:49.201Z"
+  },
+  {
+    "id": "a12977ec-0a59-4c9b-9567-48081dd6d2f4",
+    "title": "觉路",
+    "description": "以可靠佛典、学术课程和当代高质量弘法资源为骨架，帮助初学者先建立概念，再阅读经典，最后回到日常修持与辨析",
+    "url": "https://yangqingtaobeijing.github.io/foxue/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/foxue",
+    "category": "其他",
+    "createdAt": "2026-05-17T09:19:17.302Z"
   }
 ]
