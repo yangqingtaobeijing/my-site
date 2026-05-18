@@ -707,5 +707,17 @@
       "佛学之路"
     ],
     "createdAt": "2026-05-17T09:32:31.320Z"
+  },
+  {
+    "id": "92080240-25b1-4c89-b2e0-743fe1a172c3",
+    "title": "山径探索",
+    "description": "覆盖国内外经典路线，从轻松惬意到硬核挑战",
+    "url": "https://yangqingtaobeijing.github.io/hiking/#/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/hiking",
+    "category": "游戏娱乐",
+    "tags": [
+      "徒步"
+    ],
+    "createdAt": "2026-05-18T01:12:31.951Z"
   }
 ]
