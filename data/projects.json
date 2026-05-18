@@ -731,5 +731,17 @@
       "徒步"
     ],
     "createdAt": "2026-05-18T01:45:09.821Z"
+  },
+  {
+    "id": "e5d05774-373c-4e4c-8fff-1b0d256461b3",
+    "title": "founders_playbook",
+    "description": "AI-native 创业者的操作手册",
+    "url": "https://yangqingtaobeijing.github.io/codex-opc/anthropic_founders_playbook.html",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/codex-opc",
+    "category": "其他",
+    "tags": [
+      "founders_playbook"
+    ],
+    "createdAt": "2026-05-18T08:49:37.975Z"
   }
 ]
