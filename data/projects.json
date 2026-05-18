@@ -719,5 +719,17 @@
       "徒步"
     ],
     "createdAt": "2026-05-18T01:12:31.951Z"
+  },
+  {
+    "id": "ef6ae95e-fdbe-433b-b201-3d5e97159b1a",
+    "title": "野径 WildTrails",
+    "description": "探索世界的每一步",
+    "url": "https://yangqingtaobeijing.github.io/hiking-trails/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/hiking-trails",
+    "category": "游戏娱乐",
+    "tags": [
+      "徒步"
+    ],
+    "createdAt": "2026-05-18T01:45:09.821Z"
   }
 ]
