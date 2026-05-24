@@ -766,5 +766,14 @@
       "crypto"
     ],
     "createdAt": "2026-05-19T04:34:59.029Z"
+  },
+  {
+    "id": "7e76590f-f762-470b-9fcc-cc629e27cce8",
+    "title": "AI麻将",
+    "description": "",
+    "url": "https://yangqingtaobeijing.github.io/mahjong-game/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/mahjong-game",
+    "category": "游戏娱乐",
+    "createdAt": "2026-05-24T09:08:03.613Z"
   }
 ]
