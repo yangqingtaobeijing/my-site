@@ -775,5 +775,14 @@
     "sourceUrl": "https://github.com/yangqingtaobeijing/mahjong-game",
     "category": "游戏娱乐",
     "createdAt": "2026-05-24T09:08:03.613Z"
+  },
+  {
+    "id": "e77f4193-d482-41b3-aefd-c80c9cd9aa7a",
+    "title": "山野领队",
+    "description": "",
+    "url": "https://yangqingtaobeijing.github.io/hiking-leader-site/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/hiking-leader-site",
+    "category": "其他",
+    "createdAt": "2026-05-29T07:23:06.254Z"
   }
 ]
