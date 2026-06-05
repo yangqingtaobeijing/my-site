@@ -811,5 +811,14 @@
     "sourceUrl": "https://github.com/yangqingtaobeijing/market-crash-desk",
     "category": "其他",
     "createdAt": "2026-06-03T15:49:43.158Z"
+  },
+  {
+    "id": "3cab842c-f985-4185-96c5-41cb842b8bb6",
+    "title": "Equity Research Matrix",
+    "description": "",
+    "url": "https://yangqingtaobeijing.github.io/stock-research-matrix/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/stock-research-matrix",
+    "category": "其他",
+    "createdAt": "2026-06-05T14:29:29.335Z"
   }
 ]
