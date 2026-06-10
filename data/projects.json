@@ -820,5 +820,14 @@
     "sourceUrl": "https://github.com/yangqingtaobeijing/stock-research-matrix",
     "category": "其他",
     "createdAt": "2026-06-05T14:29:29.335Z"
+  },
+  {
+    "id": "3282f4eb-bc73-43d9-ae11-269e4508cef0",
+    "title": "2026 共读书目",
+    "description": "",
+    "url": "https://yangqingtaobeijing.github.io/2026-question-reading-books/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/2026-question-reading-books",
+    "category": "学习资源",
+    "createdAt": "2026-06-10T09:24:13.585Z"
   }
 ]
