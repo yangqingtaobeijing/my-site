@@ -829,5 +829,14 @@
     "sourceUrl": "https://github.com/yangqingtaobeijing/2026-question-reading-books",
     "category": "学习资源",
     "createdAt": "2026-06-10T09:24:13.585Z"
+  },
+  {
+    "id": "7ae52f7c-77a0-4cef-854f-c5296a55a01b",
+    "title": "美股交易规则与职业交易员纪律",
+    "description": "",
+    "url": "https://yangqingtaobeijing.github.io/us-stock-rulebook-site/",
+    "sourceUrl": "https://github.com/yangqingtaobeijing/us-stock-rulebook-site",
+    "category": "美股研究",
+    "createdAt": "2026-06-15T05:28:58.583Z"
   }
 ]
